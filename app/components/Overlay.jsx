@@ -54,27 +54,27 @@ export const Overlay = () => {
         </Section>
         <Section right opacity={opacitySecondSection}>
           <h1 className="font-semibold font-serif text-2xl">
-              INTRO
+              Intro.
           </h1>
           <p className="animate-bounce  mt-6">↓</p>
         </Section>
         <Section opacity={opacityThirdSection}>
           <h1 className="font-semibold font-serif text-2xl">
-              CONTACT US
+              Games.
           </h1>
           <p className="text-gray-500">
           </p>
         </Section>
         <Section opacity={opacityFourthSection}>
           <h1 className="font-semibold font-serif text-2xl">
-            4
+            Team.
           </h1>
           <p className="text-gray-500">
           </p>
         </Section>
         <Section opacity={opacityFifthSection}>
           <h1 className="font-semibold font-serif text-2xl">
-              CONTACT US
+              Awards.
           </h1>
           <p className="text-gray-500">
           </p>

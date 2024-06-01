@@ -15,6 +15,7 @@ export default function Home() {
         }}
       >
         <color attach="background" args={["#1f2233"]} />
+        {/* test */}
         <ScrollControls pages={5} damping={0.25}>
           <Overlay/>
           <Garage />

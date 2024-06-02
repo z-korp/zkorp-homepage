@@ -1,27 +1,35 @@
 "use client";
 
 import { OrbitControls, ScrollControls } from "@react-three/drei";
-import { Garage } from "./components/Garage";
+import { Model as Garage } from "./components/Garage";
+import {Model as GarageHelper} from "./components/GarageHelper"
+import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import {Overlay} from "./components/Overlay"
 import { Canvas } from "@react-three/fiber";
+
+//adjust and fix postprocessing
+//Add header
+//Add Suspense for loading model
+//Add login animation
 
 export default function Home() {
   return (
     <div className="relative w-full h-screen">
-      <Canvas
-        camera={{
-          fov: 20,
-          position: [2.3, 1.5, 2.3],
-        }}
-      >
+      <Canvas>
+      <EffectComposer>
+        {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
+        <Bloom luminanceThreshold={1.5} luminanceSmoothing={0.4} height={500} />
+        {/* <Noise opacity={0.02} /> */}
         <color attach="background" args={["#1f2233"]} />
-        {/* test */}
-        <ScrollControls pages={5} damping={0.25}>
+        <ScrollControls pages={5} damping={0.45}>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
           <Overlay/>
-          <Garage />
+          <Garage/>
+          {/* <GarageHelper/> */}
         </ScrollControls>
+        </EffectComposer>
       </Canvas>
-
     </div>
   );
 }

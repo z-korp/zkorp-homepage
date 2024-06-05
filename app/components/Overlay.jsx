@@ -17,7 +17,7 @@ const Section = (props) => {
     >
       <div className="w-full max-w-md sm:w-1/2 flex items-center justify-center">
         <div className="max-w-lg w-full">
-          <div className="bg-white rounded-lg px-8 py-12 text-sm">
+          <div className="bg-white/20 rounded-lg px-8 py-12 text-sm">
             {props.children}
           </div>
         </div>
@@ -68,7 +68,7 @@ const SectionGame = ({ right, opacity, currentGameIndex, setCurrentGameIndex }) 
         paddingTop: "10vh",
       }}
     >
-      <div className="relative w-full max-w-md sm:w-1/2 flex items-center justify-center bg-white rounded-lg">
+      <div className="relative w-full max-w-md sm:w-1/2 flex items-center justify-center bg-white/20 rounded-lg">
         <div className="flex justify-between items-center max-w-lg w-full">
           <button onClick={prevGame} className="text-xl hover:bg-zred">←</button>
           <div className="px-8 py-12 text-sm flex-grow">

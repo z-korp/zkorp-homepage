@@ -1,12 +1,15 @@
 "use client";
 
 import { OrbitControls, ScrollControls } from "@react-three/drei";
-import { Model as Garage } from "./components/Garage";
-import { Model as GarageHelper } from "./components/GarageHelper";
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
+import { useProgress } from "@react-three/drei";
 import { Overlay } from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import { useEffect, Suspense, useState } from "react";
+
+import { Model as Garage } from "./components/Garage";
+import { Model as GarageHelper } from "./components/GarageHelper";
+import { LoadingScreen } from "./components/LoadingScreen"
 
 //adjust and fix postprocessing
 //Add header
@@ -14,10 +17,22 @@ import { useState } from "react";
 //Add login animation
 
 export default function Home() {
-  const [currentGameIndex, setCurrentGameIndex] = useState(0); // Ajoutez cette ligne
+  const [started, setStarted] = useState(false);
+  const { progress, total, loaded, item } = useProgress();
+  const [currentGameIndex, setCurrentGameIndex] = useState(0); 
+
+  useEffect(() => {
+    console.log(progress, total, loaded, item);
+    if (progress === 100) {
+      setTimeout(() => {
+        setStarted(true);
+      }, 500);
+    }
+  }, [progress, total, loaded, item]);
 
   return (
     <div className="relative w-full h-screen">
+      <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
         <EffectComposer>
           {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
@@ -28,7 +43,11 @@ export default function Home() {
             <ambientLight />
             <pointLight position={[10, 10, 10]} />
             <Overlay currentGameIndex={currentGameIndex} setCurrentGameIndex={setCurrentGameIndex} />
-            <Garage idGame={currentGameIndex}/>
+            <Suspense>
+              {/* {started && ( */}
+              <Garage idGame={currentGameIndex} />
+              {/* )} */}
+            </Suspense>
             {/* <GarageHelper/> */}
           </ScrollControls>
         </EffectComposer>

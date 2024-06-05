@@ -18,12 +18,16 @@ import gsap from "gsap";
 import * as THREE from "three";
 
 //ADD CHARACTER ANIMATION
+//Fix video arcarde mobile & orientation
 
 export function Model(props) {
   const { nodes, materials, animations } = useGLTF("/models/garage5.gltf");
 
   const textureZKnight = useTexture("/textures/zknight.png");
   const textureZDefender = useVideoTexture("/textures/zdefender.mp4");
+  textureZDefender.wrapS = THREE.RepeatWrapping
+  textureZDefender.repeat.x = 1
+  textureZDefender.flipY =false;
   const textureZConqueror = useTexture("/textures/zconqueror.png");
   const textureZKlash = useTexture("/textures/zklash.png");
 

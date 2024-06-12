@@ -7,7 +7,8 @@ import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
 
 import { Camera } from "./components/Camera"
-import { Model as GarageNew } from "./components/GarageNew";
+import { Model as Garage } from "./components/Garage";
+import { Arcade } from "./components/Arcade"
 import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen"
 
@@ -42,7 +43,8 @@ export default function Home() {
             {started && (
               <>
                 <Camera />
-                <GarageNew />
+                <Garage />
+                <Arcade currentGameIndex={currentGameIndex}/>
               </>
             )}
           </Suspense>

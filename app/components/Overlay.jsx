@@ -1,17 +1,29 @@
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 //TODO OPACITY
 
 const Section = (props) => {
   return (
-    <section
-      className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zblue ${
+    <motion.section
+      className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
         props.right ? "sm:items-end" : "sm:items-start"
       }`}
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1,
+          delay: 0.6,
+        },
+      }}
       style={{
-        opacity: props.opacity,
         paddingTop: "10vh",
       }}
     >
@@ -22,32 +34,41 @@ const Section = (props) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
-const SectionGame = ({ right, opacity, currentGameIndex, setCurrentGameIndex }) => {
+const SectionGame = ({
+  right,
+  opacity,
+  currentGameIndex,
+  setCurrentGameIndex,
+}) => {
   const games = [
     {
       name: "zKnight",
-      description: "A strategic turn-based game inspired by 'Into the Breach', set in a 2D isometric world.",
-      emoji: "🛡️"
+      description:
+        "A strategic turn-based game inspired by 'Into the Breach', set in a 2D isometric world.",
+      emoji: "🛡️",
     },
     {
       name: "zDefender",
-      description: "A real-time tower defense game, demonstrating our ability to create dynamic gameplay.",
-      emoji: "🏰"
+      description:
+        "A real-time tower defense game, demonstrating our ability to create dynamic gameplay.",
+      emoji: "🏰",
     },
     {
       name: "zConqueror",
-      description: "A risk experience in the realms ecosystem. Live on sepolia.",
-      emoji: "🌍"
+      description:
+        "A risk experience in the realms ecosystem. Live on sepolia.",
+      emoji: "🌍",
     },
     {
       name: "zKlash",
-      description: "A 2D autobattler built with Unity. Build and improve your team to defeat all enemy waves.",
-      emoji: "⚔️"
-    }
+      description:
+        "A 2D autobattler built with Unity. Build and improve your team to defeat all enemy waves.",
+      emoji: "⚔️",
+    },
   ];
 
   const nextGame = () => {
@@ -60,7 +81,7 @@ const SectionGame = ({ right, opacity, currentGameIndex, setCurrentGameIndex }) 
 
   return (
     <section
-      className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zblue ${
+      className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
         right ? "sm:items-end" : "sm:items-start"
       }`}
       style={{
@@ -70,15 +91,28 @@ const SectionGame = ({ right, opacity, currentGameIndex, setCurrentGameIndex }) 
     >
       <div className="relative w-full max-w-xs sm:max-w-md sm:w-1/2 flex items-center justify-center bg-white/20 rounded-lg">
         <div className="flex justify-between items-center max-w-sm sm:max-w-lg w-full">
-          <button onClick={prevGame} className="text-lg sm:text-xl hover:bg-zred">←</button>
+          <button
+            onClick={prevGame}
+            className="text-lg sm:text-xl hover:bg-zred"
+          >
+            ←
+          </button>
           <div className="px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm flex-grow">
-            <h1 className={"text-zred font-bold"}>{games[currentGameIndex].name} {games[currentGameIndex].emoji}</h1>
+            <h1 className={"text-zred font-bold"}>
+              {games[currentGameIndex].name} {games[currentGameIndex].emoji}
+            </h1>
             <br />
             <p>{games[currentGameIndex].description}</p>
           </div>
-          <button onClick={nextGame} className="text-lg sm:text-xl hover:bg-zred">→</button>
+          <button
+            onClick={nextGame}
+            className="text-lg sm:text-xl hover:bg-zred"
+          >
+            →
+          </button>
         </div>
       </div>
+      <p className="animate-bounce mt-4 sm:mt-6">↓</p>
     </section>
   );
 };
@@ -92,10 +126,7 @@ export const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Z-KORP
           </h1>
           <br />
-          <p className="mt-3"></p>
-          <ul className="text-zblue leading-7 sm:leading-9">
-            <li className={"text-zblue"}>Games on chain</li>
-          </ul>
+          <p className="text-xs sm:text-base">Game on chain.</p>
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
         <Section right>
@@ -119,8 +150,14 @@ export const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Our first game will be live on mainnet in June, and we are ready to
             do all it takes to make it a hit.
           </p>
+          <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
-        <SectionGame right opacity={1} currentGameIndex={currentGameIndex} setCurrentGameIndex={setCurrentGameIndex} />
+        <SectionGame
+          right
+          opacity={1}
+          currentGameIndex={currentGameIndex}
+          setCurrentGameIndex={setCurrentGameIndex}
+        />
         <Section>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             {" "}
@@ -202,12 +239,12 @@ export const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
           <br />
           <p className="text-xs sm:text-base">
             <span className={"text-zred font-bold"}>Co-winner 🥇</span>
-            of the pragma track with Slayer:
+            of the pragma track with Slayer
           </p>
           <br />
           <p className="text-xs sm:text-base">
             <span className={"text-zred font-bold"}>Winner 🏆</span>
-            of the last dojo hackathon with zKlash:
+            of the last dojo hackathon with zKlash
           </p>
           <br />
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>

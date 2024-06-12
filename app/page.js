@@ -2,7 +2,7 @@
 
 import { ScrollControls, Stats } from "@react-three/drei";
 import { useProgress } from "@react-three/drei";
-import { Overlay } from "./components/Overlay";
+import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
 

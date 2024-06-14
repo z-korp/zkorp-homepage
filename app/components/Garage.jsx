@@ -9,431 +9,64 @@ import { useGLTF } from "@react-three/drei";
 //ADD CHARACTER ANIMATION
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/models/garage6.gltf");
+  const { nodes, materials } = useGLTF("/models/garage.gltf");
 
   return (
     <>
-      <group {...props} scale={[2, 2, 2]} dispose={null}>
-        <group
-          name="laptop"
-          position={[-0.497, -0.41, -0.577]}
-          rotation={[-Math.PI / 2, 0, -0.773]}
-          scale={0.013}
-        >
-          <group
-            name="da67fe2fab1e411099a40fbaf80cab7afbx"
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={0.01}
-          >
-            <group name="RootNode" position={[0, 0, 0]}>
-              <group
-                name="Cube008"
-                position={[-589.005, 47.149, 958.996]}
-                rotation={[-Math.PI / 2, Math.PI / 2, 0]}
-                scale={[705.172, 951.182, 49.909]}
-              >
-                <mesh
-                  name="Cube002_Material001_0"
-                  geometry={nodes.Cube002_Material001_0.geometry}
-                  position={[0, 0.383, -14.967]}
-                />
-                <group name="Cube002_Material_0" position={[0, 0.383, -14.967]}>
-                  <mesh
-                    name="Cube002_Material_0_1"
-                    geometry={nodes.Cube002_Material_0_1.geometry}
-                    material={materials["Material.018"]}
-                  />
-                  <mesh
-                    name="Cube002_Material_0_2"
-                    geometry={nodes.Cube002_Material_0_2.geometry}
-                    material={materials["Material.028"]}
-                  />
-                </group>
-              </group>
-            </group>
-          </group>
-        </group>
-        <group
-          name="plant"
-          position={[-0.731, 0.247, 0.757]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.097}
-        >
-          <group name="GLTF_SceneRootNode001" rotation={[Math.PI / 2, 0, 0]}>
-            <group
-              name="leaf014_7"
-              position={[-0.596, 4.4, -0.245]}
-              rotation={[-2.687, 1.381, 2.411]}
-              scale={0.908}
-            >
-              <mesh
-                name="Object_7"
-                geometry={nodes.Object_7.geometry}
-                material={materials.leaf}
-              />
-              <mesh
-                name="Object_7_1"
-                geometry={nodes.Object_7_1.geometry}
-                material={materials.ceramique}
-              />
-              <mesh
-                name="Object_7_2"
-                geometry={nodes.Object_7_2.geometry}
-                material={materials.dirt}
-              />
-              <mesh
-                name="Object_7_3"
-                geometry={nodes.Object_7_3.geometry}
-                material={materials.bark_i_dunno_i_guess_thats_how_its_called}
-              />
-            </group>
-          </group>
-        </group>
-        <group
-          name="sword"
-          position={[-0.477, -0.143, -0.008]}
-          rotation={[2.207, 0, 2.593]}
-          scale={-0.025}
-        >
-          <group name="Cube_0" position={[-0.789, 5.048, 1.96]} scale={0.736}>
-            <mesh
-              name="Cube_0_1"
-              geometry={nodes.Cube_0_1.geometry}
-              material={materials["Material.029"]}
-            />
-            <mesh
-              name="Cube_0_2"
-              geometry={nodes.Cube_0_2.geometry}
-              material={materials["mango.001"]}
-            />
-            <mesh
-              name="Cube_0_3"
-              geometry={nodes.Cube_0_3.geometry}
-              material={materials.material}
-            />
-          </group>
-        </group>
-        <group
-          name="toolbox"
-          position={[0, -0.228, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.13}
-        >
-          <group
-            name="f8ed993754fa4daf84f1c1260319b3a3fbx"
-            rotation={[-Math.PI, 0, 0]}
-            scale={0.01}
-          >
-            <group name="ToolBox" rotation={[0, 0, -Math.PI / 2]} scale={100}>
-              <mesh
-                name="ToolBox_M_ColorPallete_0"
-                geometry={nodes.ToolBox_M_ColorPallete_0.geometry}
-                material={materials.M_ColorPallete}
-                position={[-3.072, -6.028, -1.501]}
-                rotation={[0, 0, 2.858]}
-                scale={0.882}
-              />
-            </group>
-          </group>
-        </group>
-        <group name="tool1" rotation={[-Math.PI, 0, 0]}>
-          <group
-            name="ef13daaa6bb246d7bff5242f8b8abed2fbx"
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={0.01}
-          >
-            <group name="PaperCuttingKnife" rotation={[Math.PI / 2, 0, 0]}>
-              <group
-                name="PaperCuttingKnife_Metal_02_0"
-                position={[-66.751, -41.615, -16.666]}
-                rotation={[0, 0.407, 0]}
-                scale={0.127}
-              >
-                <mesh
-                  name="PaperCuttingKnife_Metal_02_0_1"
-                  geometry={nodes.PaperCuttingKnife_Metal_02_0_1.geometry}
-                  material={materials.Metal_02}
-                />
-                <mesh
-                  name="PaperCuttingKnife_Metal_02_0_2"
-                  geometry={nodes.PaperCuttingKnife_Metal_02_0_2.geometry}
-                  material={materials["material.001"]}
-                />
-                <mesh
-                  name="PaperCuttingKnife_Metal_02_0_3"
-                  geometry={nodes.PaperCuttingKnife_Metal_02_0_3.geometry}
-                  material={materials.black}
-                />
-              </group>
-            </group>
-          </group>
-        </group>
-        <group name="_Room" position={[-0.291, -0.306, -0.281]} scale={0.241}>
-          <mesh
-            name="Plane"
-            geometry={nodes.Plane.geometry}
-            material={materials["Material.036"]}
-          />
-          <mesh
-            name="Plane_1"
-            geometry={nodes.Plane_1.geometry}
-            material={materials["Material.001"]}
-          />
-          <mesh
-            name="Plane_2"
-            geometry={nodes.Plane_2.geometry}
-            material={materials["Material.002"]}
-          />
-        </group>
-
-        <mesh
-          name="Shelving"
-          geometry={nodes.Shelving.geometry}
-          material={materials["Material.005"]}
-          position={[-0.925, 0.264, -0.481]}
-          scale={0.241}
-        />
-        <mesh
-          name="defaultMaterial019"
-          geometry={nodes.defaultMaterial019.geometry}
-          material={materials.Material}
-          position={[-0.703, -0.801, 0.051]}
-          scale={0.314}
-        />
-        <mesh
-          name="Text"
-          geometry={nodes.Text.geometry}
-          material={materials["Material.012"]}
-          position={[-0.546, 0.449, -0.93]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.367}
-        />
-        <mesh
-          name="121522969"
-          geometry={nodes["121522969"].geometry}
-          material={materials["121522969"]}
-          position={[-0.753, -0.386, -0.34]}
-          rotation={[1.984, 0, -1.29]}
-          scale={0.024}
-        />
-        <mesh
-          name="star_trophy002"
-          geometry={nodes.star_trophy002.geometry}
-          material={materials.material}
-          position={[0.637, -0.423, -0.642]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.0003}
-        />
-        <mesh
-          name="trophy_L002"
-          geometry={nodes.trophy_L002.geometry}
-          material={materials.material}
-          position={[0.637, -0.423, -0.428]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.0003}
-        />
-        <mesh
-          name="trophy_M002"
-          geometry={nodes.trophy_M002.geometry}
-          material={materials.material}
-          position={[0.443, -0.423, -0.428]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.0003}
-        />
-        <mesh
-          name="trophy_S002"
-          geometry={nodes.trophy_S002.geometry}
-          material={materials.material}
-          position={[0.263, -0.423, -0.428]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.0003}
-        />
-        <mesh
-          name="trophy_M003"
-          geometry={nodes.trophy_M003.geometry}
-          material={materials.material}
-          position={[0.443, -0.423, -0.618]}
-          rotation={[Math.PI / 2, 0, -0.434]}
-          scale={0.0003}
-        />
-        <mesh
-          name="Object_7_Object_0002"
-          geometry={nodes.Object_7_Object_0002.geometry}
-          material={materials.leaf}
-          position={[-0.854, 0.285, -0.177]}
-          rotation={[Math.PI / 2, 0, -0.616]}
-          scale={0.187}
-        />
-        <mesh
-          name="Object_7_Object_0"
-          geometry={nodes.Object_7_Object_0.geometry}
-          material={materials.bark_i_dunno_i_guess_thats_how_its_called}
-          position={[-0.825, 0.288, -0.443]}
-          rotation={[Math.PI / 2, 0, -0.594]}
-          scale={0.175}
-        />
-        <mesh
-          name="Object_7_Object_0004"
-          geometry={nodes.Object_7_Object_0004.geometry}
-          material={materials.material}
-          position={[-0.853, 0.286, -0.649]}
-          rotation={[1.552, 0.041, -1.137]}
-          scale={0.187}
-        />
-        <mesh
-          name="Object_7_Object_0005"
-          geometry={nodes.Object_7_Object_0005.geometry}
-          material={materials.dirt}
-          position={[-0.898, 0.289, -0.346]}
-          rotation={[Math.PI / 2, 0, -1.228]}
-          scale={0.198}
-        />
-        <mesh
-          name="Object_7_Object_0001"
-          geometry={nodes.Object_7_Object_0001.geometry}
-          material={materials.leaf}
-          position={[-0.841, 0.287, -0.84]}
-          rotation={[Math.PI / 2, 0, -0.731]}
-          scale={0.187}
-        />
-        <group
-          name="Table"
-          position={[-0.624, -0.942, -0.316]}
-          rotation={[0, Math.PI / 2, 0]}
-          scale={0.208}
-        >
-          <mesh
-            name="Plane030"
-            geometry={nodes.Plane030.geometry}
-            material={materials["Material.003"]}
-          />
-          <mesh
-            name="Plane030_1"
-            geometry={nodes.Plane030_1.geometry}
-            material={materials["Material.009"]}
-          />
-          <mesh
-            name="Plane023"
-            geometry={nodes.Plane023.geometry}
-            material={materials["Material.004"]}
-            scale={1.182}
-          />
-        </group>
-        <group name="Table001" position={[0.25, -0.942, -0.64]} scale={0.208}>
-          <mesh
-            name="Plane030"
-            geometry={nodes.Plane030.geometry}
-            material={materials["Material.003"]}
-          />
-          <mesh
-            name="Plane030_1"
-            geometry={nodes.Plane030_1.geometry}
-            material={materials["Material.009"]}
-          />
-          <mesh
-            name="Patas"
-            geometry={nodes.Patas.geometry}
-            material={materials["Material.004"]}
-            scale={1.182}
-          />
-        </group>
-        <group name="095fcb8d09f645a8b175f21c5336016afbx" scale={0.01}>
-          <group
-            name="Lowpoly_tools"
-            rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
-          >
-            <group name="Scissors" position={[-0.875, 0, 0]}>
-              <group
-                name="Handle_Left"
-                position={[0, 0, 0.108]}
-                rotation={[0, -0.698, 0]}
-              >
-                <group name="Blade_Left" rotation={[-Math.PI, -0.451, 0]}>
-                  <mesh
-                    name="Blade_Left_Tools_Mat_0"
-                    geometry={nodes.Blade_Left_Tools_Mat_0.geometry}
-                    material={materials.Tools_Mat}
-                    position={[0.162, -0.125, 0.585]}
-                    rotation={[1.509, 0.24, 0.255]}
-                    scale={0.497}
-                  />
-                </group>
-                <mesh
-                  name="Handle_Left_Tools_Mat_0"
-                  geometry={nodes.Handle_Left_Tools_Mat_0.geometry}
-                  material={materials.Tools_Mat}
-                  position={[-0.109, 0.125, -0.597]}
-                  rotation={[1.076, -0.515, -0.831]}
-                  scale={0.497}
-                />
-              </group>
-              <group
-                name="Handle_Right"
-                position={[0, 0, 0.108]}
-                rotation={[-Math.PI, -0.698, 0]}
-              >
-                <group
-                  name="Blade_Right"
-                  position={[0, -0.003, 0]}
-                  rotation={[Math.PI, -0.451, 0]}
-                >
-                  <mesh
-                    name="Blade_Right_Tools_Mat_0"
-                    geometry={nodes.Blade_Right_Tools_Mat_0.geometry}
-                    material={materials.Tools_Mat}
-                    position={[0.42, 0.123, -0.436]}
-                    rotation={[1.509, 0.24, 0.255]}
-                    scale={0.497}
-                  />
-                </group>
-                <mesh
-                  name="Handle_Right_Tools_Mat_0"
-                  geometry={nodes.Handle_Right_Tools_Mat_0.geometry}
-                  material={materials.Tools_Mat}
-                  position={[0.569, -0.125, 0.211]}
-                  rotation={[1.076, -0.515, -0.831]}
-                  scale={0.497}
-                />
-              </group>
-            </group>
-            <group name="Screwdriver" position={[-0.125, 0, 0]}>
-              <group name="Screwdriver001" position={[0, 0, 0.145]}>
-                <mesh
-                  name="Screwdriver001_Tools_Mat_0"
-                  geometry={nodes.Screwdriver001_Tools_Mat_0.geometry}
-                  material={materials.Tools_Mat}
-                  position={[-0.586, 0.205, -0.558]}
-                  rotation={[1.655, 0, 0]}
-                  scale={0.521}
-                />
-              </group>
-              <mesh
-                name="Handle003_Tools_Mat_0"
-                geometry={nodes.Handle003_Tools_Mat_0.geometry}
-                material={materials.Tools_Mat}
-                position={[-0.586, 0.28, -0.407]}
-                rotation={[1.655, 0, 0]}
-                scale={0.521}
-              />
-            </group>
-            <group name="Wrench" position={[-0.625, 0, 0]}>
-              <group name="Wrench001" position={[0, 0, 0.102]}>
-                <mesh
-                  name="Wrench001_Tools_Mat_0"
-                  geometry={nodes.Wrench001_Tools_Mat_0.geometry}
-                  material={materials.Tools_Mat}
-                  position={[-0.009, 0.24, -0.521]}
-                  rotation={[Math.PI / 2, 0.967, -Math.PI / 2]}
-                  scale={0.697}
-                />
-              </group>
+        <group {...props} dispose={null}>
+      <group name="laptop" position={[-1.07, -1.1, -1.189]} rotation={[-Math.PI / 2, 0, -0.773]} scale={0.027}>
+        <group name="lap" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+          <group name="Cube008" position={[-589.006, 47.149, 958.996]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={[705.172, 951.182, 49.909]}>
+            <mesh name="Cube002_Material001_0" geometry={nodes.Cube002_Material001_0.geometry} material={materials['Material.017']} position={[0, 0.383, -14.967]} />
+            <group name="Cube002_Material_0" position={[0, 0.383, -14.967]}>
+              <mesh name="Cube002_Material_0_1" geometry={nodes.Cube002_Material_0_1.geometry} material={materials['Material.018']} />
+              <mesh name="Cube002_Material_0_2" geometry={nodes.Cube002_Material_0_2.geometry} material={materials['Material.028']} />
             </group>
           </group>
         </group>
       </group>
+      <group name="leaf014_7" position={[-1.268, 8.52, -0.525]} rotation={[-2.687, 1.381, 2.411]} scale={1.815}>
+        <group name="Object_17" position={[0.111, -4.258, -0.673]} scale={0.117}>
+          <mesh name="Object_7" geometry={nodes.Object_7.geometry} material={materials.leaf} />
+          <mesh name="Object_7_1" geometry={nodes.Object_7_1.geometry} material={materials.ceramique} />
+          <mesh name="Object_7_2" geometry={nodes.Object_7_2.geometry} material={materials.dirt} />
+          <mesh name="Object_7_3" geometry={nodes.Object_7_3.geometry} material={materials.bark_i_dunno_i_guess_thats_how_its_called} />
+        </group>
+      </group>
+      <mesh name="Ethereum_logo_@akimovcg" geometry={nodes['Ethereum_logo_@akimovcg'].geometry} material={materials['default']} position={[-0.491, -0.544, -1.471]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} />
+      <mesh name="Cylinder" geometry={nodes.Cylinder.geometry} material={nodes.Cylinder.material} position={[-0.494, -1.108, -1.471]} scale={[0.086, 0.043, 0.086]} />
+      <mesh name="logo" geometry={nodes.logo.geometry} material={materials['Material.011']} position={[-1.431, 0.562, -1.881]} rotation={[Math.PI / 2, 0, 0]} scale={0.942} />
+      <mesh name="star_trophy002" geometry={nodes.star_trophy002.geometry} material={materials.material} position={[1.224, -1.086, -1.367]} rotation={[Math.PI / 2, 0, 0]} scale={0} />
+      <mesh name="trophy_L002" geometry={nodes.trophy_L002.geometry} material={materials.material} position={[1.224, -1.086, -0.939]} rotation={[Math.PI / 2, 0, 0]} scale={[0, 0, 0.001]} />
+      <mesh name="trophy_M002" geometry={nodes.trophy_M002.geometry} material={materials.material} position={[0.836, -1.086, -0.939]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} />
+      <mesh name="trophy_S002" geometry={nodes.trophy_S002.geometry} material={materials.material} position={[0.475, -1.086, -0.939]} rotation={[Math.PI / 2, 0, 0]} scale={[0, 0, 0.001]} />
+      <mesh name="trophy_M003" geometry={nodes.trophy_M003.geometry} material={materials.material} position={[0.836, -1.086, -1.319]} rotation={[Math.PI / 2, 0, -0.434]} scale={0.001} />
+      <group name="Table001" position={[0.425, -2.164, -1.315]} scale={0.415}>
+        <mesh name="Plane030" geometry={nodes.Plane030.geometry} material={materials['Material.003']} />
+        <mesh name="Plane030_1" geometry={nodes.Plane030_1.geometry} material={materials['Material.009']} />
+        <mesh name="Plane030_2" geometry={nodes.Plane030_2.geometry} material={materials['Material.006']} />
+        <mesh name="Plane030_3" geometry={nodes.Plane030_3.geometry} material={materials['Material.007']} />
+      </group>
+      <mesh name="guy1" geometry={nodes.guy1.geometry} material={materials.bark_i_dunno_i_guess_thats_how_its_called} position={[-1.726, 0.297, -0.92]} rotation={[Math.PI / 2, 0, -0.594]} scale={0.35} />
+      <mesh name="guy2" geometry={nodes.guy2.geometry} material={materials.leaf} position={[-1.758, 0.295, -1.715]} rotation={[Math.PI / 2, 0, -0.731]} scale={0.374} />
+      <mesh name="guy3" geometry={nodes.guy3.geometry} material={materials.leaf} position={[-1.783, 0.29, -0.389]} rotation={[Math.PI / 2, 0, -0.616]} scale={0.374} />
+      <mesh name="guy4" geometry={nodes.guy4.geometry} material={materials.material} position={[-1.782, 0.292, -1.334]} rotation={[1.552, 0.041, -1.137]} scale={0.374} />
+      <mesh name="guy5" geometry={nodes.guy5.geometry} material={materials.dirt} position={[-1.871, 0.298, -0.727]} rotation={[Math.PI / 2, 0, -1.228]} scale={0.395} />
+      <mesh name="robotArm" geometry={nodes.robotArm.geometry} material={materials.Material} position={[-1.482, -1.882, 0.066]} scale={0.628} />
+      <group name="sword" position={[-0.969, -0.612, 0.227]} rotation={[-0.827, -0.163, -1.137]} scale={0.045}>
+        <mesh name="Cube_0" geometry={nodes.Cube_0.geometry} material={materials['Material.029']} />
+        <mesh name="Cube_0_1" geometry={nodes.Cube_0_1.geometry} material={materials['mango.001']} />
+        <mesh name="Cube_0_2" geometry={nodes.Cube_0_2.geometry} material={materials.material} />
+      </group>
+      <mesh name="Shelving" geometry={nodes.Shelving.geometry} material={materials['Material.005']} position={[-1.925, 0.248, -0.998]} scale={0.483} />
+      <group name="_Room" position={[-0.657, -0.891, -0.598]} scale={0.483}>
+        <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials['Material.036']} />
+        <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials['Material.001']} />
+        <mesh name="Plane_2" geometry={nodes.Plane_2.geometry} material={materials['Material.002']} />
+      </group>
+    </group>
     </>
   );
 }
 
-useGLTF.preload("/models/garage6.gltf");
+useGLTF.preload("/models/garage.gltf");

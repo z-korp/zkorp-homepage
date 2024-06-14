@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollControls, Stats } from "@react-three/drei";
+import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { useProgress } from "@react-three/drei";
 import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
@@ -49,6 +50,9 @@ export default function Home() {
             )}
           </Suspense>
         </ScrollControls>
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.3} luminanceSmoothing={0.75} height={300} />
+        </EffectComposer>
         <Stats />
       </Canvas>
     </div>

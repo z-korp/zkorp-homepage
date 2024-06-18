@@ -6,7 +6,8 @@ import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
 
-import Navbar from "./components/NavBar";
+import { Navbar } from "./components/NavBar";
+import { ScrollManager } from "./components/ScrollManager";
 import { Camera } from "./components/Camera";
 import { Model as Garage } from "./components/Garage";
 import { Arcade } from "./components/Arcade";
@@ -19,6 +20,8 @@ import { LoadingScreen } from "./components/LoadingScreen";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
+  const [section, setSection] = useState(0);
+  const [menuOpened, setMenuOpened] = useState(false);
   const { progress, total, loaded, item } = useProgress();
   const [currentGameIndex, setCurrentGameIndex] = useState(0);
 
@@ -37,7 +40,7 @@ export default function Home() {
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
         <ScrollControls pages={5} damping={0.45}>
-          <Navbar />
+          <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Overlay
@@ -56,6 +59,12 @@ export default function Home() {
         </ScrollControls>
         <Stats />
       </Canvas>
+      <Navbar
+        onSectionChange={setSection}
+        menuOpened={menuOpened}
+        setMenuOpened={setMenuOpened}
+      />
+
     </div>
   );
 }

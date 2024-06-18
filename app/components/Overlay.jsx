@@ -2,8 +2,9 @@ import { Scroll } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Section = ({ right, children }) => (
+const Section = ({ id, right, children }) => (
   <motion.section
+    id={"lol"}
     className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
       right ? "sm:items-end" : "sm:items-start"
     }`}
@@ -47,7 +48,7 @@ const SectionGame = ({
             ←
           </button>
           <div className="px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm flex-grow">
-          <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
+            <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
               {games[currentGameIndex].name} {games[currentGameIndex].emoji}
             </h1>
             <br />
@@ -105,7 +106,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
           <p>Game on chain.</p>
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
-        <Section right>
+        <Section id="About" right>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Z-KORP
           </h1>

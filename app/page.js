@@ -6,11 +6,12 @@ import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
 
-import { Camera } from "./components/Camera"
+import Navbar from "./components/NavBar";
+import { Camera } from "./components/Camera";
 import { Model as Garage } from "./components/Garage";
-import { Arcade } from "./components/Arcade"
+import { Arcade } from "./components/Arcade";
 import { Model as GarageHelper } from "./components/GarageHelper";
-import { LoadingScreen } from "./components/LoadingScreen"
+import { LoadingScreen } from "./components/LoadingScreen";
 
 //Add header
 //Add login animation
@@ -36,15 +37,19 @@ export default function Home() {
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
         <ScrollControls pages={5} damping={0.45}>
+          <Navbar />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
-          <Overlay currentGameIndex={currentGameIndex} setCurrentGameIndex={setCurrentGameIndex} />
+          <Overlay
+            currentGameIndex={currentGameIndex}
+            setCurrentGameIndex={setCurrentGameIndex}
+          />
           <Suspense>
             {started && (
               <>
                 <Camera />
                 <Garage />
-                <Arcade currentGameIndex={currentGameIndex}/>
+                <Arcade currentGameIndex={currentGameIndex} />
               </>
             )}
           </Suspense>

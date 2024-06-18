@@ -1,4 +1,4 @@
-export function Navbar (props){
+export function Navbar(props) {
   const { onSectionChange, menuOpened, setMenuOpened } = props;
 
   return (
@@ -28,22 +28,48 @@ export function Navbar (props){
       ${menuOpened ? "w-full md:w-80" : "w-0"}`}
       >
         <div className="flex-1 flex items-start justify-center flex-col gap-6 p-8">
-          <MenuButton label="Home" onClick={() => onSectionChange(0)} />
-          <MenuButton label="About us" onClick={() => onSectionChange(1)} />
-          <MenuButton label="Games" onClick={() => onSectionChange(2)} />
-          <MenuButton label="The Team" onClick={() => onSectionChange(3)} />
-          <MenuButton label="Awards" onClick={() => onSectionChange(4)} />
+          <MenuButton
+            label="Home"
+            onClick={() => onSectionChange(0)}
+            setMenuOpened={setMenuOpened}
+          />
+          <MenuButton
+            label="About us"
+            onClick={() => onSectionChange(1)}
+            setMenuOpened={setMenuOpened}
+          />
+          <MenuButton
+            label="Games"
+            onClick={() => onSectionChange(2)}
+            setMenuOpened={setMenuOpened}
+          />
+          <MenuButton
+            label="The Team"
+            onClick={() => onSectionChange(3)}
+            setMenuOpened={setMenuOpened}
+          />
+          <MenuButton
+            label="Awards"
+            onClick={() => onSectionChange(4)}
+            setMenuOpened={setMenuOpened}
+          />
         </div>
       </div>
     </>
   );
-};
+}
 
 const MenuButton = (props) => {
-  const { label, onClick } = props;
+  const { label, onClick, setMenuOpened } = props;
+
+  const handleClick = () => {
+    onClick(); // Appel de la fonction onClick passée en prop
+    setMenuOpened(false); // Fermeture du menu en appelant setMenuOpened avec false
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       className="text-2xl text-zblue font-bold cursor-pointer hover:text-zred transition-colors"
     >
       {label}

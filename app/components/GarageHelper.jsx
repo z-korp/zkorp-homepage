@@ -12,7 +12,7 @@ import gsap from "gsap";
 const DEG45 = Math.PI / 4;
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/models/garage5.gltf");
+  const { nodes, materials } = useGLTF("/models/garage.gltf");
 //   const camera = useRef();
   const { viewport } = useThree();
   const responsiveRatio = viewport.width / 12;
@@ -69,290 +69,38 @@ export function Model(props) {
         scale={[2,2,2]}
         dispose={null}
       >
-        <pointLight
-          name="Point001"
-          intensity={100.957}
-          decay={2}
-          color="#914fff"
-          position={[-0.839, -0.5, -1.684]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.241}
-        />
-        <pointLight
-          name="Point002"
-          intensity={10.946}
-          decay={2}
-          color="#ff82f7"
-          position={[-1.686, -0.466, -0.729]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.241}
-        />
-        <pointLight
-          name="Point"
-          intensity={10.853}
-          decay={2}
-          color="#ff9062"
-          position={[0.729, 0.278, -0.407]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.241}
-        />
-        <group name="_Room" position={[0.041, -0.819, 0.05]} scale={0.241}>
-          <mesh
-            name="Plane"
-            geometry={nodes.Plane.geometry}
-            material={materials.Wall}
-          />
-          <mesh
-            name="Plane_1"
-            geometry={nodes.Plane_1.geometry}
-            material={materials.Floor}
-          />
-        </group>
-        <group name="Arcade" position={[-0.708, -0.9, 0.699]} scale={0.197}>
-          <mesh
-            name="Plane003"
-            geometry={nodes.Plane003.geometry}
-            material={materials.Black}
-          />
-          <mesh
-            name="Plane003_1"
-            geometry={nodes.Plane003_1.geometry}
-            material={materials["Arcade screen"]}
-          />
-          <mesh
-            name="Plane003_2"
-            geometry={nodes.Plane003_2.geometry}
-            material={materials.Glow}
-          />
-          <mesh
-            name="Plane003_3"
-            geometry={nodes.Plane003_3.geometry}
-            material={materials.Logo}
-          />
-          <mesh
-            name="Buttons"
-            geometry={nodes.Buttons.geometry}
-            material={materials["Yellow Glow"]}
-            position={[0.814, 2.827, 0.268]}
-            rotation={[0, 0, -0.244]}
-          />
-          <mesh
-            name="Buttons001"
-            geometry={nodes.Buttons001.geometry}
-            material={materials["Yellow Glow"]}
-            position={[0.814, 2.827, -1.039]}
-            rotation={[0, 0, -0.244]}
-          />
-          <group
-            name="Joystick"
-            position={[1.1, 2.821, 0.632]}
-            rotation={[0, 0, -0.244]}
-          >
-            <mesh
-              name="Circle"
-              geometry={nodes.Circle.geometry}
-              material={materials.Black}
-            />
-            <mesh
-              name="Circle_1"
-              geometry={nodes.Circle_1.geometry}
-              material={materials.Red}
-            />
-          </group>
-          <group
-            name="Joystick001"
-            position={[1.1, 2.821, -0.675]}
-            rotation={[0, 0, -0.244]}
-          >
-            <mesh
-              name="Circle"
-              geometry={nodes.Circle.geometry}
-              material={materials.Black}
-            />
-            <mesh
-              name="Circle_1"
-              geometry={nodes.Circle_1.geometry}
-              material={materials.Red}
-            />
-          </group>
-        </group>
-        {/* <mesh name="Chair" geometry={nodes.Chair.geometry} material={materials.Metal} position={[0.089, -0.82, 0.082]} rotation={[0, -0.449, 0]} scale={0.282}>
-        <mesh name="Circle015_1" geometry={nodes.Circle015_1.geometry} material={materials.Black} position={[0, 0.002, 0]} />
-        <mesh name="Circle016" geometry={nodes.Circle016.geometry} material={materials.Red} position={[0, 1.406, 0]} scale={1.192}>
-          <mesh name="Vert004" geometry={nodes.Vert004.geometry} material={materials.Black} rotation={[0, 1.548, 0]} scale={0.839} />
-        </mesh>
-      </mesh> */}
-        <mesh
-          name="Shelving"
-          geometry={nodes.Shelving.geometry}
-          material={materials.Wood}
-          position={[-0.925, 0.264, -0.481]}
-          scale={0.241}
-        />
-        {/* <mesh name="Cube" geometry={nodes.Cube.geometry} material={nodes.Cube.material} /> */}
-        <mesh
-          name="Lamp"
-          geometry={nodes.Lamp.geometry}
-          material={materials.Red}
-          position={[-0.805, -0.42, -0.339]}
-          rotation={[0, 1.386, 0]}
-          scale={0.291}
-        >
-          <pointLight
-            name="Light"
-            intensity={10.712}
-            decay={2}
-            color="#ffb639"
-            position={[-0.004, 1.048, 0.611]}
-            rotation={[-Math.PI / 2, 0, -1.386]}
-            scale={0.831}
-          />
-          <mesh
-            name="Circle017"
-            geometry={nodes.Circle017.geometry}
-            material={materials.Red}
-            position={[0, 1.212, 0.459]}
-            rotation={[-0.751, 0, 0]}
-            scale={0.735}
-          >
-            <mesh
-              name="Icosphere"
-              geometry={nodes.Icosphere.geometry}
-              material={nodes.Icosphere.material}
-              position={[0, -0.209, 0]}
-              rotation={[0.696, -1.228, 0]}
-              scale={1.361}
-            />
-          </mesh>
-          <mesh
-            name="Vert005"
-            geometry={nodes.Vert005.geometry}
-            material={materials.Black}
-            position={[0, 0.046, 0]}
-          />
-        </mesh>
-        <mesh
-          name="Keyboard"
-          geometry={nodes.Keyboard.geometry}
-          material={materials["Computer-beige"]}
-          position={[-0.376, -0.411, -0.422]}
-          rotation={[0, 0.707, 0]}
-          scale={0.32}
-        >
-          <mesh
-            name="Teclas"
-            geometry={nodes.Teclas.geometry}
-            material={materials.Grey}
-            position={[-0.03, -0.001, 0.012]}
-            rotation={[0.103, 0, 0]}
-          />
-        </mesh>
-        <mesh
-          name="Table"
-          geometry={nodes.Table.geometry}
-          material={materials.Wood}
-          position={[-0.624, -0.942, -0.316]}
-          rotation={[0, Math.PI / 2, 0]}
-          scale={0.208}
-        >
-          <mesh
-            name="Computer001"
-            geometry={nodes.Computer001.geometry}
-            material={materials["Computer-beige"]}
-            position={[1.619, 2.516, -0.229]}
-            rotation={[0, -0.643, 0]}
-            scale={1.423}
-          >
-            <mesh
-              name="Plane039"
-              geometry={nodes.Plane039.geometry}
-              material={materials["Computer-beige"]}
-            />
-            <mesh
-              name="Plane042"
-              geometry={nodes.Plane042.geometry}
-              material={materials.Black}
-              position={[0, 0, -0.102]}
-            />
-            <mesh
-              name="Plane043"
-              geometry={nodes.Plane043.geometry}
-              material={materials.Red}
-              position={[0.402, 0.177, 0.422]}
-              rotation={[-0.106, 0, 0]}
-            />
-            <group name="Plane044" position={[-0.448, 0.11, 0.426]}>
-              <mesh
-                name="Plane038"
-                geometry={nodes.Plane038.geometry}
-                material={materials["Computer-beige"]}
-              />
-              <mesh
-                name="Plane038_1"
-                geometry={nodes.Plane038_1.geometry}
-                material={materials["Yellow Glow"]}
-              />
-            </group>
-            <group name="Plane045" position={[-0.412, 0.11, 0.426]}>
-              <mesh
-                name="Plane038"
-                geometry={nodes.Plane038.geometry}
-                material={materials["Computer-beige"]}
-              />
-              <mesh
-                name="Plane038_1"
-                geometry={nodes.Plane038_1.geometry}
-                material={materials["Yellow Glow"]}
-              />
-            </group>
-            <group
-              name="screen-nc"
-              position={[0.015, 0.265, 0.045]}
-              scale={1.224}
-            >
-              <mesh
-                name="Plane039_1"
-                geometry={nodes.Plane039_1.geometry}
-                material={materials["Computer-beige"]}
-              />
-              <mesh
-                name="Plane039_2"
-                geometry={nodes.Plane039_2.geometry}
-                material={materials["Screen-nc"]}
-              />
-            </group>
-          </mesh>
-          <mesh
-            name="Plane023"
-            geometry={nodes.Plane023.geometry}
-            material={materials.Wood}
-            scale={1.182}
-          />
-        </mesh>
-        <mesh
-          name="Table001"
-          geometry={nodes.Table001.geometry}
-          material={materials.Wood}
-          position={[0.25, -0.942, -0.64]}
-          scale={0.208}
-        >
-          <mesh
-            name="Patas"
-            geometry={nodes.Patas.geometry}
-            material={materials.Wood}
-            scale={1.182}
-          />
-          <mesh
-            name="Raton"
-            geometry={nodes.Raton.geometry}
-            material={materials["Computer-beige"]}
-            position={[-1.802, 2.516, 0.535]}
-            scale={1.586}
-          />
-        </mesh>
+                  {/* <mesh name="etherum_Baked" ref={meshRef} geometry={nodes.etherum_Baked.geometry} material={materials.etherum_Baked} position={[-0.398, -0.716, -1.449]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} /> */}
+      <mesh name="guy1_Baked" geometry={nodes.guy1_Baked.geometry} material={materials.guy1_Baked} position={[-1.726, 0.297, -0.608]} rotation={[Math.PI / 2, 0, -0.594]} scale={0.35} />
+      <mesh name="guy2_Baked" geometry={nodes.guy2_Baked.geometry} material={materials.guy2_Baked} position={[-1.758, 0.295, -1.403]} rotation={[Math.PI / 2, 0, -0.731]} scale={0.374} />
+      <mesh name="guy3_Baked" geometry={nodes.guy3_Baked.geometry} material={materials.guy3_Baked} position={[-1.783, 0.29, -0.077]} rotation={[Math.PI / 2, 0, -0.616]} scale={0.374} />
+      <mesh name="guy4_Baked" geometry={nodes.guy4_Baked.geometry} material={materials.guy4_Baked} position={[-1.782, 0.292, -1.022]} rotation={[1.552, 0.041, -1.137]} scale={0.374} />
+      <mesh name="guy5_Baked" geometry={nodes.guy5_Baked.geometry} material={materials.guy5_Baked} position={[-1.871, 0.298, -0.415]} rotation={[Math.PI / 2, 0, -1.228]} scale={0.395} />
+      <mesh name="_Room_Baked" geometry={nodes._Room_Baked.geometry} material={materials._Room_Baked} position={[-0.657, -0.891, -0.598]} scale={0.483} />
+      <mesh name="Table001_Baked" geometry={nodes.Table001_Baked.geometry} material={materials['Table.001_Baked.001']} position={[0.425, -2.164, -1.315]} scale={0.415} />
+      <mesh name="Shelving_Baked" geometry={nodes.Shelving_Baked.geometry} material={materials.Shelving_Baked} position={[-1.925, 0.248, -0.686]} scale={0.483} />
+      {/* <mesh name="Object_10_Baked" geometry={nodes.Object_10_Baked.geometry} material={materials.Object_10_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
+      <mesh name="Object_11_Baked" geometry={nodes.Object_11_Baked.geometry} material={materials.Object_11_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
+      <mesh name="Object_12_Baked" geometry={nodes.Object_12_Baked.geometry} material={materials.Object_12_Baked} position={[-1.576, -1.958, 1.441]} scale={0.389} />
+      <mesh name="Object_9_Baked" geometry={nodes.Object_9_Baked.geometry} material={materials.Object_9_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} /> */}
+      <mesh name="logo_Baked" geometry={nodes.logo_Baked.geometry} material={materials.logo_Baked} position={[-1.431, 0.562, -1.881]} rotation={[Math.PI / 2, 0, 0]} scale={0.942} />
+      <mesh name="robotArm_Baked" geometry={nodes.robotArm_Baked.geometry} material={materials.robotArm_Baked} position={[-1.482, -1.882, 0.066]} scale={0.628} />
+      <mesh name="sword_Baked" geometry={nodes.sword_Baked.geometry} material={materials.sword_Baked} position={[-0.969, -0.612, 0.227]} rotation={[-0.827, -0.163, -1.137]} scale={0.045} />
+      <mesh name="star_trophy_Baked" geometry={nodes.star_trophy_Baked.geometry} material={materials['star trophy_Baked.001']} position={[0.84, -1.122, -0.997]} rotation={[Math.PI / 2, 0, -0.234]} scale={0.001} />
+      <mesh name="trophy_L_Baked" geometry={nodes.trophy_L_Baked.geometry} material={materials['trophy_L_Baked.001']} position={[1.123, -1.122, -1.232]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} />
+      <mesh name="trophy_M_Baked" geometry={nodes.trophy_M_Baked.geometry} material={materials['trophy_M_Baked.001']} position={[0.454, -1.122, -1.292]} rotation={[Math.PI / 2, 0, 0.321]} scale={0.001} />
+      <mesh name="trophy_S_Baked" geometry={nodes.trophy_S_Baked.geometry} material={materials['trophy_S_Baked.001']} position={[0.802, -1.122, -1.437]} rotation={[Math.PI / 2, 0, 0.373]} scale={0.001} />
+      <mesh name="Cube002_Material001_0_Baked" geometry={nodes.Cube002_Material001_0_Baked.geometry} material={materials['Cube.002_Material.001_0_Baked']} position={[-1.434, -1.087, -1.324]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.187, 0.253, 0.013]} />
+      <mesh name="Cube002_Material_0_Baked" geometry={nodes.Cube002_Material_0_Baked.geometry} material={materials['Cube.002_Material_0_Baked']} position={[-1.434, -1.087, -1.324]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.187, 0.253, 0.013]} />
+      {/* <mesh name="Object_17_Baked" geometry={nodes.Object_17_Baked.geometry} material={materials.Object_17_Baked} position={[-1.521, 1.033, 1.51]} rotation={[-2.687, 1.381, 2.411]} scale={0.212} />
+      <mesh name="Object_16_Baked" geometry={nodes.Object_16_Baked.geometry} material={materials.Object_16_Baked} position={[-1.258, -0.852, 1.045]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_14_Baked" geometry={nodes.Object_14_Baked.geometry} material={materials.Object_14_Baked} position={[-1.258, -0.852, 1.548]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_21_Baked" geometry={nodes.Object_21_Baked.geometry} material={materials.Object_21_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_22_Baked" geometry={nodes.Object_22_Baked.geometry} material={materials.Object_22_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_18_Baked" geometry={nodes.Object_18_Baked.geometry} material={materials.Object_18_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_19_Baked" geometry={nodes.Object_19_Baked.geometry} material={materials.Object_19_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} /> */}
       </group>
     </>
   );
 }
 
-useGLTF.preload("/models/garage5.gltf");
+useGLTF.preload("/models/garage.gltf");

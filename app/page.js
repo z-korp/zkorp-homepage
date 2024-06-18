@@ -39,13 +39,14 @@ export default function Home() {
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
-        <ScrollControls pages={5} damping={0.45}>
+        <ScrollControls pages={6} damping={0.28} >
           <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Overlay
             currentGameIndex={currentGameIndex}
             setCurrentGameIndex={setCurrentGameIndex}
+            setSection={setSection}
           />
           <Suspense>
             {started && (
@@ -53,6 +54,7 @@ export default function Home() {
                 <Camera />
                 <Garage />
                 <Arcade currentGameIndex={currentGameIndex} />
+                {/* <GarageHelper/> */}
               </>
             )}
           </Suspense>
@@ -64,7 +66,6 @@ export default function Home() {
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
       />
-
     </div>
   );
 }

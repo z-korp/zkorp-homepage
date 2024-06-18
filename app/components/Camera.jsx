@@ -29,26 +29,31 @@ export function Camera(props) {
       y: 6.433999999999999,
       z: 9.174999999999999,
     },
-    start: {
+    computer: {
       x: 0.4061836081754747,
       y: 0.5073192417053342,
       z: 1.5415741249626413,
     },
-    computer: {
+    arcade: {
       x: 1.6155003970518913,
       y: 0.038539227148126964,
       z: 1.1709320081556152,
     },
-    arcade: {
+    team: {
       x: 0.2989242719548637,
       y: 1.140648199771251,
       z: 1.2782927547063812,
     },
-    newStep: {
+    awards: {
       x: 0.8687065154027045,
       y: -0.18822288236999296,
       z: 1.791036022816557,
-    }, // Newly added step
+    }, 
+    contact:{
+      x:6.1,
+      y:7.0,
+      z:8.0,
+    }
   };
   const rotations = {
     initial: {
@@ -56,41 +61,46 @@ export function Camera(props) {
       y: 0.6676331470388479,
       z: 0.40960894885848753,
     },
-    start: {
+    computer: {
       x: -0.3431568280455146,
       y: 0.25880285673195114,
       z: 0.09118600750167233,
     },
-    computer: {
+    arcade: {
       x: -1.277261206050929,
       y: 1.45722759669781,
       z: 1.2754664241828215,
     },
-    arcade: {
+    team: {
       x: -0.14151528771566876,
       y: 0.6923754413126297,
       z: 0.09069716818348851,
     },
-    newStep: {
+    awards: {
       x: -0.10887728266530627,
       y: 0.038318274153610325,
       z: 0.004187503995162637,
-    }, // Newly added step
+    }, 
+    contact:{
+      x:0,
+      y:0,
+      z:0,
+    }
   };
 
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
   });
-
+  
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
     if (!camera.current) return;
-
+  
     tl.current.fromTo(
       camera.current.position,
       positions.initial,
       {
-        ...positions.start,
+        ...positions.computer,
         duration: 1,
       },
       0
@@ -99,28 +109,10 @@ export function Camera(props) {
       camera.current.rotation,
       rotations.initial,
       {
-        ...rotations.start,
-        duration: 1,
-      },
-      0
-    );
-    tl.current.fromTo(
-      camera.current.position,
-      positions.start,
-      {
-        ...positions.computer,
-        duration: 1,
-      },
-      1
-    );
-    tl.current.fromTo(
-      camera.current.rotation,
-      rotations.start,
-      {
         ...rotations.computer,
         duration: 1,
       },
-      1
+      0
     );
     tl.current.fromTo(
       camera.current.position,
@@ -129,7 +121,7 @@ export function Camera(props) {
         ...positions.arcade,
         duration: 1,
       },
-      2
+      1
     );
     tl.current.fromTo(
       camera.current.rotation,
@@ -138,28 +130,62 @@ export function Camera(props) {
         ...rotations.arcade,
         duration: 1,
       },
-      2
+      1
     );
     tl.current.fromTo(
       camera.current.position,
       positions.arcade,
       {
-        ...positions.newStep,
+        ...positions.team,
+        duration: 1,
+      },
+      2
+    );
+    tl.current.fromTo(
+      camera.current.rotation,
+      rotations.arcade,
+      {
+        ...rotations.team,
+        duration: 1,
+      },
+      2
+    );
+    tl.current.fromTo(
+      camera.current.position,
+      positions.team,
+      {
+        ...positions.awards,
         duration: 1,
       },
       3
     );
     tl.current.fromTo(
       camera.current.rotation,
-      rotations.arcade,
+      rotations.team,
       {
-        ...rotations.newStep,
+        ...rotations.awards,
         duration: 1,
       },
       3
     );
-
-    return () => tl.current.kill();
+    tl.current.fromTo(
+      camera.current.position,
+      positions.awards,
+      {
+        ...positions.contact,
+        duration: 1,
+      },
+      4
+    );
+    tl.current.fromTo(
+      camera.current.rotation,
+      rotations.awards,
+      {
+        ...rotations.contact,
+        duration: 1,
+      },
+      4
+    );
   }, []);
 
   return (

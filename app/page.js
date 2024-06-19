@@ -23,7 +23,7 @@ export default function Home() {
   const [currentGameIndex, setCurrentGameIndex] = useState(0);
 
   useEffect(() => {
-    console.log(progress, total, loaded, item);
+    // console.log(progress, total, loaded, item);
     if (progress === 100) {
       setTimeout(() => {
         setStarted(true);

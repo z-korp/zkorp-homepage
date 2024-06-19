@@ -103,4 +103,4 @@ export function Arcade({ currentGameIndex }) {
   );
 }
 
-useGLTF.preload("/models/arcade2.gltf");
+useGLTF.preload("/models/garage.gltf");

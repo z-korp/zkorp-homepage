@@ -1,11 +1,9 @@
 import { ValidationError, useForm } from "@formspree/react";
 import { Scroll } from "@react-three/drei";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
-const Section = ({ id, right, children }) => (
+const Section = ({ right, children }) => (
   <motion.section
-    id={"lol"}
     className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
       right ? "sm:items-end" : "sm:items-start"
     }`}
@@ -99,9 +97,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
   return (
     <Scroll html>
       <div className="w-screen">
-        <Section
-        setSection={setSection}
-        >
+        <Section setSection={setSection}>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Z-KORP
           </h1>
@@ -209,7 +205,8 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
       </div>
-        <ContactSection/>
+      <ContactSection />
+      <FooterSection />
     </Scroll>
   );
 };
@@ -217,65 +214,116 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("mayzgjbd");
   return (
-    <Section>
-      <h2 className="text-3xl md:text-5xl font-bold">Contact us</h2>
-      <div className="mt-8 p-8 rounded-md bg-zwhite bg-opacity-50 w-96 max-w-full">
-        {state.succeeded ? (
-          <p className="text-gray-900 text-center">Thanks for your message !</p>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <label for="name" className="font-medium text-gray-900 block mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-            />
-            <label
-              for="email"
-              className="font-medium text-gray-900 block mb-1 mt-8"
+    <div>
+      <Section>
+        <h2 className="text-3xl md:text-5xl font-bold">Contact us</h2>
+        <div className="mt-8 p-8 rounded-md bg-zwhite bg-opacity-50 w-96 max-w-full">
+          {state.succeeded ? (
+            <p className="text-gray-900 text-center">
+              Thanks for your message !
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <label
+                for="name"
+                className="font-medium text-gray-900 block mb-1"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
+              />
+              <label
+                for="email"
+                className="font-medium text-gray-900 block mb-1 mt-8"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
+              />
+              <ValidationError
+                className="mt-1 text-red-500"
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+              <label
+                for="email"
+                className="font-medium text-gray-900 block mb-1 mt-8"
+              >
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
+              />
+              <ValidationError
+                className="mt-1 text-red-500"
+                errors={state.errors}
+              />
+              <button
+                disabled={state.submitting}
+                className="bg-zblue text-zwhite py-4 px-8 rounded-lg font-bold text-lg mt-16 "
+              >
+                Submit
+              </button>
+            </form>
+          )}
+        </div>
+      </Section>
+    </div>
+  );
+};
+
+const FooterSection = () => {
+  return (
+    <footer class="bg-zwhite rounded-lg shadow m-4 dark:bg-gray-800">
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-zblue sm:text-center ">© 2024 ZKORP</span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-zblue sm:mt-0">
+          {/* <li class="mr-4 md:mr-6">
+            <a href="" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/discord.svg" alt="Discord" class="w-5 h-5" />
+            </a>
+          </li> */}
+          <li class="mr-4 md:mr-6">
+            <a
+              href="https://github.com/z-korp/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-            />
-            <ValidationError
-              className="mt-1 text-red-500"
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
-            <label
-              for="email"
-              className="font-medium text-gray-900 block mb-1 mt-8"
+              <img src="/icons/github.svg" alt="GitHub" class="w-5 h-5" />
+            </a>
+          </li>
+          <li class="mr-4 md:mr-6">
+            <a
+              href="https://realms.world/studios/zkorp"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-            />
-            <ValidationError
-              className="mt-1 text-red-500"
-              errors={state.errors}
-            />
-            <button
-              disabled={state.submitting}
-              className="bg-zblue text-zwhite py-4 px-8 rounded-lg font-bold text-lg mt-16 "
+              <img src="/icons/realms.svg" alt="Realms" class="w-5 h-5" />
+            </a>
+          </li>
+          <li class="mr-4 md:mr-6">
+            <a
+              href="https://x.com/zKorp_"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Submit
-            </button>
-          </form>
-        )}
+              <img src="/icons/twitter.svg" alt="Twitter" class="w-5 h-5" />
+            </a>
+          </li>
+        </ul>
       </div>
-    </Section>
+    </footer>
   );
 };
 

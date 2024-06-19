@@ -10,7 +10,7 @@ export function Model(props) {
   const { nodes, materials } = useGLTF('/garage.gltf')
   return (
     <group {...props} dispose={null}>
-      <mesh name="etherum_Baked" geometry={nodes.etherum_Baked.geometry} material={materials.etherum_Baked} position={[-0.398, -0.716, -1.449]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} />
+      <mesh name="etherum_Baked" geometry={nodes.etherum_Baked.geometry} material={materials.etherum_Baked} position={[-0.398, -0.716, -1.449]} rotation={[Math.PI / 2, 0, 0]} scale={0.0001} />
       <mesh name="guy1_Baked" geometry={nodes.guy1_Baked.geometry} material={materials.guy1_Baked} position={[-1.726, 0.297, -0.608]} rotation={[Math.PI / 2, 0, -0.594]} scale={0.35} />
       <mesh name="guy2_Baked" geometry={nodes.guy2_Baked.geometry} material={materials.guy2_Baked} position={[-1.758, 0.295, -1.403]} rotation={[Math.PI / 2, 0, -0.731]} scale={0.374} />
       <mesh name="guy3_Baked" geometry={nodes.guy3_Baked.geometry} material={materials.guy3_Baked} position={[-1.783, 0.29, -0.077]} rotation={[Math.PI / 2, 0, -0.616]} scale={0.374} />

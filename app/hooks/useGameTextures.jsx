@@ -1,6 +1,6 @@
-import { useTexture, useVideoTexture } from '@react-three/drei';
-import * as THREE from 'three';
-import { useMemo } from 'react';
+import { useTexture, useVideoTexture } from "@react-three/drei";
+import * as THREE from "three";
+import { useMemo } from "react";
 
 const useGameTextures = (props) => {
   const textureZKnight = useTexture("/textures/zknight.png");
@@ -10,7 +10,7 @@ const useGameTextures = (props) => {
   const textureZKlash = useVideoTexture("/textures/zklash.mp4");
 
   const videoTextures = [textureZDefender, textureZConqueror, textureZKlash];
-  videoTextures.forEach(texture => {
+  videoTextures.forEach((texture) => {
     texture.wrapS = THREE.RepeatWrapping;
     texture.repeat.x = 1;
     texture.flipY = false;
@@ -29,7 +29,6 @@ const useGameTextures = (props) => {
     if (!selectedTexture) return null;
     return new THREE.MeshBasicMaterial({ map: selectedTexture });
   }, [selectedTexture]);
-
 
   return dynamicMaterial;
 };

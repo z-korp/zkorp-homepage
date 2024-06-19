@@ -13,10 +13,7 @@ import { Model as Garage } from "./components/Garage";
 import { Arcade } from "./components/Arcade";
 import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
-
-//Add header
-//Add login animation
-//BAKING TEXTURE AND SHADOW
+import { Timeline } from "./components/TimeLine";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -39,7 +36,8 @@ export default function Home() {
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
-        <ScrollControls pages={6} damping={0.28} >
+        <ScrollControls pages={6.07} damping={0.35}>
+          {/* <ScrollControls pages={7} damping={0.28}> */}
           <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
@@ -66,6 +64,7 @@ export default function Home() {
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
       />
+      <Timeline menuOpened={menuOpened} onSectionChange={setSection} />
     </div>
   );
 }

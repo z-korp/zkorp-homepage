@@ -1,17 +1,7 @@
 import React, { useRef, useLayoutEffect, useMemo } from "react";
-import {
-  useGLTF,
-  PerspectiveCamera,
-  useScroll,
-  useAnimations,
-  useTexture,
-  useAspect,
-  useVideoTexture,
-} from "@react-three/drei";
+import { PerspectiveCamera, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import * as THREE from "three";
-import { useEffect } from "react";
 
 export function Camera(props) {
   //RESPONSIVE
@@ -48,12 +38,12 @@ export function Camera(props) {
       x: 0.8687065154027045,
       y: -0.18822288236999296,
       z: 1.791036022816557,
-    }, 
-    contact:{
-      x:6.1,
-      y:7.0,
-      z:8.0,
-    }
+    },
+    contact: {
+      x: 6.1,
+      y: 7.0,
+      z: 8.0,
+    },
   };
   const rotations = {
     initial: {
@@ -80,22 +70,22 @@ export function Camera(props) {
       x: -0.10887728266530627,
       y: 0.038318274153610325,
       z: 0.004187503995162637,
-    }, 
-    contact:{
-      x:0,
-      y:0,
-      z:0,
-    }
+    },
+    contact: {
+      x: 0,
+      y: 0,
+      z: 0,
+    },
   };
 
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
   });
-  
+
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
     if (!camera.current) return;
-  
+
     tl.current.fromTo(
       camera.current.position,
       positions.initial,

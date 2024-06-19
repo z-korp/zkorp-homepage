@@ -27,7 +27,7 @@ export const LoadingScreen = (props) => {
             width: `${progress}%`,
           }}
         >
-           ZKORP
+          ZKORP
         </div>
         <div className="opacity-40">ZKORP</div>
       </div>

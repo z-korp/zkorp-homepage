@@ -53,6 +53,11 @@ export function Navbar(props) {
             onClick={() => onSectionChange(4)}
             setMenuOpened={setMenuOpened}
           />
+          <MenuButton
+            label="Contact us"
+            onClick={() => onSectionChange(5)}
+            setMenuOpened={setMenuOpened}
+          />
         </div>
       </div>
     </>

@@ -7,7 +7,6 @@ export function Camera(props) {
   //RESPONSIVE
   const camera = useRef();
   const { viewport } = useThree();
-  const responsiveRatio = viewport.width / 12;
   const isMobile = window.innerWidth < 1024;
 
   //MOVEMENT

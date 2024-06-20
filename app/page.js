@@ -36,7 +36,7 @@ export default function Home() {
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
-        <ScrollControls pages={6.07} damping={0.35}>
+        <ScrollControls pages={6.1} damping={0.35}>
           {/* <ScrollControls pages={7} damping={0.28}> */}
           <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />

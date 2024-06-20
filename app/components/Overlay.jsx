@@ -285,45 +285,46 @@ const ContactSection = () => {
 
 const FooterSection = () => {
   return (
-    <footer className="bg-zwhite rounded-lg shadow m-4 dark:bg-gray-800">
-      <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <span className="text-sm text-zblue sm:text-center ">© 2024 ZKORP</span>
-        <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-zblue sm:mt-0">
-          {/* <li className="mr-4 md:mr-6">
-            <a href="" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/discord.svg" alt="Discord" className="w-5 h-5" />
-            </a>
-          </li> */}
-          <li className="mr-4 md:mr-6">
-            <a
-              href="https://github.com/z-korp/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/icons/github.svg" alt="GitHub" className="w-5 h-5" />
-            </a>
-          </li>
-          <li className="mr-4 md:mr-6">
-            <a
-              href="https://realms.world/studios/zkorp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/icons/realms.svg" alt="Realms" className="w-5 h-5" />
-            </a>
-          </li>
-          <li className="mr-4 md:mr-6">
-            <a
-              href="https://x.com/zKorp_"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/icons/twitter.svg" alt="Twitter" className="w-5 h-5" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+    <footer className="bg-zwhite">
+  <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <span className="text-sm text-zblue sm:text-center">© 2024 ZKORP</span>
+    <ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-zblue sm:mt-0">
+      {/* <li className="mr-4 md:mr-6">
+        <a href="" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/discord.svg" alt="Discord" className="w-5 h-5" />
+        </a>
+      </li> */}
+      <li className="mr-4 md:mr-6">
+        <a
+          href="https://github.com/z-korp/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/github.svg" alt="GitHub" className="w-5 h-5" />
+        </a>
+      </li>
+      <li className="mr-4 md:mr-6">
+        <a
+          href="https://realms.world/studios/zkorp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/realms.svg" alt="Realms" className="w-5 h-5" />
+        </a>
+      </li>
+      <li className="mr-4 md:mr-6">
+        <a
+          href="https://x.com/zKorp_"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/twitter.svg" alt="Twitter" className="w-5 h-5" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
   );
 };
 

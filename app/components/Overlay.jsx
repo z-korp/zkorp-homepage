@@ -3,7 +3,7 @@ import { ValidationError, useForm } from "@formspree/react";
 import { Scroll } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { games, teamMembers, awardsList } from '../data/data';
-import Section from "./ui/section"
+import Section from "./ui/Section"
 import Carousel from "./ui/Carousel"
 import SmartCarousel from "./ui/SmartCarousel"
 

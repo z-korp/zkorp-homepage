@@ -1,72 +1,78 @@
+import React, { useEffect, useState } from "react";
 import { ValidationError, useForm } from "@formspree/react";
 import { Scroll } from "@react-three/drei";
 import { motion } from "framer-motion";
 
-const Section = ({ right, children }) => (
-  <motion.section
-    className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
-      right ? "sm:items-end" : "sm:items-start"
-    }`}
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } }}
-    style={{ paddingTop: "10vh" }}
-  >
-    <div className="w-full max-w-xs sm:max-w-md sm:w-2/3 flex items-center justify-center">
-      <div className="max-w-sm w-full bg-white/20 rounded-lg px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm">
-        {children}
+const Section = ({ align, children }) => {
+  const alignmentClasses = {
+    topleft: "items-start justify-start sm:w-2/5",
+    bottomleft: "items-end justify-start sm:w-2/5",
+    top: "items-start justify-center sm:w-4/5",
+    bottom: "items-end justify-center sm:w-4/5"
+  };
+
+  return (
+    <motion.section
+      className={`h-screen flex  ${
+        alignmentClasses[align] || "items-center justify-center w-4/5"
+      } p-4 sm:p-10 text-zblue`}
+      initial={{ opacity: 1, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1, delay: 0.6 },
+      }}
+      style={{ paddingTop: "10vh" }}
+    >
+      <div className="flex items-center justify-center w-full">
+        <div className="w-full bg-zwhite bg-opacity-70 rounded-lg px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm">
+          {children}
+        </div>
       </div>
-    </div>
-  </motion.section>
-);
+    </motion.section>
+  );
+};
 
 const SectionGame = ({
-  right,
+  align,
   opacity,
   currentGameIndex,
   setCurrentGameIndex,
   games,
-}) => {
-  const nextGame = () =>
-    setCurrentGameIndex((currentGameIndex + 1) % games.length);
-  const prevGame = () =>
-    setCurrentGameIndex((currentGameIndex + games.length - 1) % games.length);
-
-  return (
-    <section
-      className={`h-screen flex flex-col justify-start items-center p-4 sm:p-10 text-zwhite ${
-        right ? "sm:items-end" : "sm:items-start"
-      }`}
-      style={{ opacity, paddingTop: "10vh" }}
-    >
-      <div className="relative w-full max-w-xs sm:max-w-md sm:w-1/2 flex items-center justify-center bg-white/20 rounded-lg">
-        <div className="flex justify-between items-center max-w-sm sm:max-w-lg w-full">
-          <button
-            onClick={prevGame}
-            className="text-lg sm:text-xl hover:bg-zred"
-          >
-            ←
-          </button>
-          <div className="px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm flex-grow">
-            <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
-              {games[currentGameIndex].name} {games[currentGameIndex].emoji}
-            </h1>
-            <br />
-            <p>{games[currentGameIndex].description}</p>
-          </div>
-          <button
-            onClick={nextGame}
-            className="text-lg sm:text-xl hover:bg-zred"
-          >
-            →
-          </button>
+}) => (
+  <Section align={align} style={{ opacity, paddingTop: "10vh" }}>
+    <div className="relative w-full max-w-xs sm:max-w-md sm:w-1/2 flex items-center justify-center bg-white/20 rounded-lg">
+      <div className="flex justify-between items-center max-w-sm sm:max-w-lg w-full">
+        <button
+          onClick={() =>
+            setCurrentGameIndex(
+              (currentGameIndex + games.length - 1) % games.length
+            )
+          }
+        >
+          ←
+        </button>
+        <div className="px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm flex-grow">
+          <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
+            {games[currentGameIndex].name} {games[currentGameIndex].emoji}
+          </h1>
+          <p>{games[currentGameIndex].description}</p>
         </div>
+        <button
+          onClick={() =>
+            setCurrentGameIndex((currentGameIndex + 1) % games.length)
+          }
+        >
+          →
+        </button>
       </div>
-      <p className="animate-bounce mt-4 sm:mt-6">↓</p>
-    </section>
-  );
-};
+    </div>
+  </Section>
+);
 
 const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
+  const isMobile = window.innerWidth < 1024;
+
   const games = [
     {
       name: "zKnight",
@@ -97,7 +103,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
   return (
     <Scroll html>
       <div className="w-screen">
-        <Section setSection={setSection}>
+        <Section id="" align={isMobile ? "top" : "topleft"}>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Z-KORP
           </h1>
@@ -105,7 +111,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           <p>Game on chain.</p>
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
-        <Section id="About" right>
+        <Section id="" align={isMobile ? "top" : "topleft"}>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Z-KORP
           </h1>
@@ -127,13 +133,13 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
         <SectionGame
-          right
+          align={isMobile ? "top" : "top"}
           opacity={1}
           currentGameIndex={currentGameIndex}
           setCurrentGameIndex={setCurrentGameIndex}
           games={games}
         />
-        <Section>
+        <Section id="" align={isMobile ? "bottom" : "top"}>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Z-Team.
           </h1>
@@ -172,7 +178,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           </p>
           <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
-        <Section>
+        <Section id="" align={isMobile ? "bottom" : "topleft"}>
           <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
             Awards.
           </h1>
@@ -217,7 +223,7 @@ const ContactSection = () => {
     <div>
       <Section>
         <h2 className="text-3xl md:text-5xl font-bold">Contact us</h2>
-        <div className="mt-8 p-8 rounded-md bg-zwhite bg-opacity-50 w-96 max-w-full">
+        <div className="mt-8 p-8 rounded-md bg-zwhite bg-opacity-50 w-80 max-w-full">
           {state.succeeded ? (
             <p className="text-gray-900 text-center">
               Thanks for your message !
@@ -279,53 +285,29 @@ const ContactSection = () => {
           )}
         </div>
       </Section>
+      {/* <FooterSection /> */}
     </div>
   );
 };
 
 const FooterSection = () => {
   return (
-    <footer className="bg-zwhite">
-  <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span className="text-sm text-zblue sm:text-center">© 2024 ZKORP</span>
-    <ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-zblue sm:mt-0">
-      {/* <li className="mr-4 md:mr-6">
-        <a href="" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/discord.svg" alt="Discord" className="w-5 h-5" />
+    <footer className="bg-zwhite w-full">
+      <div className="flex justify-center items-center w-full p-4">
+        <a href="https://github.com/z-korp/" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
         </a>
-      </li> */}
-      <li className="mr-4 md:mr-6">
-        <a
-          href="https://github.com/z-korp/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="/icons/github.svg" alt="GitHub" className="w-5 h-5" />
+        <a href="https://realms.world/studios/zkorp" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/realms.svg" alt="Realms" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
         </a>
-      </li>
-      <li className="mr-4 md:mr-6">
-        <a
-          href="https://realms.world/studios/zkorp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="/icons/realms.svg" alt="Realms" className="w-5 h-5" />
+        <a href="https://x.com/zKorp_" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/twitter.svg" alt="Twitter" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
         </a>
-      </li>
-      <li className="mr-4 md:mr-6">
-        <a
-          href="https://x.com/zKorp_"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="/icons/twitter.svg" alt="Twitter" className="w-5 h-5" />
-        </a>
-      </li>
-    </ul>
-  </div>
-</footer>
-
+      </div>
+    </footer>
   );
 };
+
+
 
 export default Overlay;

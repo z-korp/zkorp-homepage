@@ -5,12 +5,13 @@ Command: npx gltfjsx@6.2.16 garage5.gltf -k
 
 import React, { useRef, useLayoutEffect, useEffect } from "react";
 import { useGLTF, PerspectiveCamera, CameraControls } from "@react-three/drei";
+import * as THREE from 'three'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF("/models/garage.gltf");
   //   const camera = useRef();
-  const { viewport } = useThree();
-  const responsiveRatio = viewport.width / 12;
+  // const { viewport } = useThree();
+  // const responsiveRatio = viewport.width / 12;
   const isMobile = window.innerWidth < 768;
 
   const camera = useRef();
@@ -50,20 +51,19 @@ export function Model(props) {
       /> */}
       <CameraControls ref={control}>
         <PerspectiveCamera
-          name="Camera"
-          ref={camera}
-          makeDefault={true}
-          far={1000}
-          near={0.1}
-          fov={isMobile ? 50 : 30}
-          position={[8.835, 6.434, 9.175]}
-          rotation={[-0.644, 0.639, 0.421]}
+        ref={camera}
+        name="Camera"
+        makeDefault={true}
+        fov={isMobile ? 60 : 40}
+        far={1000}
+        near={0.1}
+        position={[8.835, 6.434, 9.175]}
+        rotation={[-0.644, 0.639, 0.421]}
         />
       </CameraControls>
       <group
         {...props}
-        position={[isMobile ? 0 : 0, isMobile ? -viewport.height / 4 : 0, 0]}
-        scale={[2, 2, 2]}
+        // position={[isMobile ? 0 : 0, isMobile ? -viewport.height / 4 : 0, 0]}
         dispose={null}
       >
         {/* <mesh name="etherum_Baked" ref={meshRef} geometry={nodes.etherum_Baked.geometry} material={materials.etherum_Baked} position={[-0.398, -0.716, -1.449]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} /> */}

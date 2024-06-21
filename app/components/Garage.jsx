@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.16 garage5.gltf -k
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { useControls } from "leva";
 
 //ADD CHARACTER ANIMATION
 
@@ -31,11 +31,21 @@ export function Model(props) {
         name="etherum_Baked"
         ref={meshRef}
         geometry={nodes.etherum_Baked.geometry}
+        // material={materials.etherum_Baked}
         material={materials.etherum_Baked}
         position={[-0.398, -0.716, -1.449]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.0005}
-      />
+      >
+        <meshStandardMaterial
+          attach="material"
+          {...materials.etherum_Baked}
+          roughness={0} // Moins rugueux pour plus de brillance
+          metalness={1} // Plus métallique
+          emissive={'#ffffff'} // Ajout de l'émissivité pour rendre l'objet plus clair
+          emissiveIntensity={0.5} // Intensité de l'émissivité
+        />
+      </mesh>
       <mesh
         name="guy1_Baked"
         geometry={nodes.guy1_Baked.geometry}
@@ -51,7 +61,8 @@ export function Model(props) {
         position={[-1.758, 0.295, -1.403]}
         rotation={[Math.PI / 2, 0, -0.731]}
         scale={0.374}
-      />
+      >
+      </mesh>
       <mesh
         name="guy3_Baked"
         geometry={nodes.guy3_Baked.geometry}
@@ -75,7 +86,14 @@ export function Model(props) {
         position={[-1.871, 0.298, -0.415]}
         rotation={[Math.PI / 2, 0, -1.228]}
         scale={0.395}
-      />
+      >
+      {/* <meshStandardMaterial
+          attach="material"
+          {...materials.guy5_Baked}
+          emissive={'#ffffff'} // Ajout de l'émissivité pour rendre l'objet plus clair
+          emissiveIntensity={0.5} // Intensité de l'émissivité
+        /> */}
+      </mesh>
       <mesh
         name="_Room_Baked"
         geometry={nodes._Room_Baked.geometry}

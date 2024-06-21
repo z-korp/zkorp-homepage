@@ -14,20 +14,20 @@ const Carousel = ({ align, list }) => {
 
   return (
     <Section align={align}>
-      <div className="flex justify-between items-center w-full p-4">
+      <div className="flex justify-between items-center w-full p-1">
         <button
-          className="text-2xl bg-zred text-white font-bold py-2 px-4 rounded-full hover:bg-zblue"
+          className="text-lg sm:text-2xl bg-zred text-white font-bold py-1 px-2 sm:py-2 sm:px-4 rounded-full hover:bg-zblue"
           onClick={prevItem}
         >
           ←
         </button>
-        <div className="flex flex-col items-center justify-center text-center flex-grow">
+        <div className="flex flex-col items-center justify-center flex-grow mx-2">
           {list.length > 0 && list[currentIndex] ? (
             <>
-              <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-2xl">
+            <h1 className="bg-zred text-zwhite font-bold px-4 text-lg sm:text-xl sm:text-2xl my-4 mt-0">
                 {list[currentIndex].name} {list[currentIndex].emoji}
               </h1>
-              <p className="text-sm sm:text-base">
+              <p className="text-xs sm:text-sm sm:text-base min-h-[80px] max-h-[80px] my-0">
                 {list[currentIndex].description}
               </p>
             </>
@@ -36,7 +36,7 @@ const Carousel = ({ align, list }) => {
           )}
         </div>
         <button
-          className="text-2xl bg-zred text-white font-bold py-2 px-4 rounded-full hover:bg-zblue"
+          className="text-lg sm:text-2xl bg-zred text-white font-bold py-1 px-2 sm:py-2 sm:px-4 rounded-full hover:bg-zblue"
           onClick={nextItem}
         >
           →

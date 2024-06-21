@@ -15,6 +15,8 @@ import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Timeline } from "./components/TimeLine";
 
+import {useControls } from 'leva'
+
 export default function Home() {
   const [started, setStarted] = useState(false);
   const [section, setSection] = useState(0);

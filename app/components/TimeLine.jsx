@@ -1,4 +1,4 @@
-export function Timeline({ menuOpened, onSectionChange }) {
+export function Timeline({ menuOpened, onSectionChange, currentSection }) {
   if (menuOpened) return null;
 
   const svgIcons = [
@@ -18,7 +18,7 @@ export function Timeline({ menuOpened, onSectionChange }) {
       {svgIcons.map((icon, index) => (
         <button
           key={index}
-          className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-f3394e border-none cursor-pointer flex items-center justify-center"
+          className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-1 rounded-full border-none cursor-pointer flex items-center justify-center ${index === currentSection ? 'bg-zred' : ''}`}
           style={{
             top: `${((index + 1) / 7) * 100}%`,
             width: "40px",

@@ -61,12 +61,12 @@ export default function Home() {
         </ScrollControls>
         <Stats />
       </Canvas>
-      <Navbar
+      {/* <Navbar
         onSectionChange={setSection}
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
-      />
-      <Timeline menuOpened={menuOpened} onSectionChange={setSection} />
+      /> */}
+      <Timeline menuOpened={menuOpened} onSectionChange={setSection} currentSection={section}/>
     </div>
   );
 }

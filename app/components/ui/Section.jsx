@@ -13,18 +13,19 @@ const Section = ({ align, children }) => {
     <motion.section
       className={`h-screen flex ${
         alignmentClasses[align] || "items-center justify-center w-4/5"
-      } p-4 sm:p-10 text-zblue`}
-      initial={{ opacity: 1, y: 50 }}
+      } p-2 sm:p-10 text-zblue`}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { duration: 1, delay: 0.6 },
+        transition: { duration: 1.5, delay: 0.6 },
       }}
-      style={{ paddingTop: "10vh" }}
+      style={{ paddingTop: "1vh" }}
     >
       <div className="flex items-center justify-center w-full">
-        <div className="w-full bg-zwhite bg-opacity-70 rounded-lg px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm">
+        <div className="w-full bg-zwhite bg-opacity-70 rounded-lg px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm font-bold mr-0">
           {children}
+          <p className="animate-bounce mt-4 sm:mt-6 mb-0">↓</p>
         </div>
       </div>
     </motion.section>

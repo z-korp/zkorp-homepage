@@ -3,8 +3,8 @@ import * as THREE from "three";
 import { useMemo } from "react";
 
 const useGameTextures = (props) => {
+  // const textureZKnight = useTexture("/textures/zknight.mp4");
   const textureZKnight = useTexture("/textures/zknight.png");
-
   const textureZDefender = useVideoTexture("/textures/zdefenderIOS.mp4");
   const textureZConqueror = useVideoTexture("/textures/zconqueror.mp4");
   const textureZKlash = useVideoTexture("/textures/zklash.mp4");
@@ -17,10 +17,10 @@ const useGameTextures = (props) => {
   });
 
   const textures = {
+    zKlash: textureZKlash,
     zKnight: textureZKnight,
     zDefender: textureZDefender,
     zConqueror: textureZConqueror,
-    zKlash: textureZKlash,
   };
 
   const selectedTexture = textures[props.idGame];

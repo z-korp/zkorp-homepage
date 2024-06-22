@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { ValidationError, useForm } from "@formspree/react";
+import React from "react";
 import { Scroll } from "@react-three/drei";
-import { motion } from "framer-motion";
-import { games, teamMembers, awardsList } from '../data/data';
-import Section from "./ui/Section"
-import Carousel from "./ui/Carousel"
-import SmartCarousel from "./ui/SmartCarousel"
-
+import { games } from "../data/data";
+import Section from "./ui/Section";
+import ContactSection from "./ui/Contact"
+import FooterSection from "./ui/Footer"
+import SmartCarousel from "./ui/SmartCarousel";
 
 const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
   const isMobile = window.innerWidth < 1024;
 
-
-
   return (
     <Scroll html>
       <div className="w-screen">
-        <Section id="" align={isMobile ? "top" : "topleft"}>
-          <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
+        <Section id="welcome" align={isMobile ? "top" : "topleft"}>
+          <h1 className="bg-zred text-zwhite font-bold px-1  text-xl sm:text-2xl my-2">
             Z-KORP
           </h1>
-          <br />
           <p>Game on chain.</p>
-          <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
-        <Section id="" align={isMobile ? "top" : "topleft"}>
-          <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-2xl">
+        <Section id="intro" align={isMobile ? "top" : "topleft"}>
+          <h1 className="bg-zred text-zwhite font-bold px-1  text-xl sm:text-2xl">
             Z-KORP
           </h1>
           <br />
@@ -43,7 +37,6 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             Our first game will be live on mainnet in June, and we are ready to
             do all it takes to make it a hit.
           </p>
-          <p className="animate-bounce mt-4 sm:mt-6">↓</p>
         </Section>
         <SmartCarousel
           align={isMobile ? "top" : "topleft"}
@@ -52,112 +45,93 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           setCurrentIndex={setCurrentGameIndex}
           list={games}
         />
-        <Carousel
-          align={isMobile ? "bottom" : "topleft"}
-          list={teamMembers}
-        />
-        <Carousel
-          align={isMobile ? "bottom" : "topleft"}
-          list={awardsList}
-        />
+        <Section id="Team" align={isMobile ? "bottom" : "topleft"}>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Balty
+          </h1>
+          <p className="py-1">
+            A seasoned engineer with a background in smart contract development
+            for Carbonable, now pioneering our smart contract innovations.
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-2xl">
+            Matthias
+          </h1>
+          <p className="py-1">
+            With a history in electronics engineering and CTO experience in a
+            web3 company, Matthias is our visionary founder and full-stack
+            developer.
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-2xl">
+            Cheelax
+          </h1>
+          <p className="py-1">
+            Transitioned from IT engineering in major firms to web3, bringing
+            extensive experience in software development and project management
+            as founder and full-stack developer.
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-2xl">
+            Cosmos
+          </h1>
+          <p className="py-1">
+            A specialized frontend development engineer, Cosmos bridges
+            traditional IT engineering with the burgeoning opportunities in
+            web3, and also delves into design.
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-2xl">
+            Caillef
+          </h1>
+          <p className="py-1">
+            Juggling roles in the traditional gaming industry at CU.bzh and our
+            blockchain ventures, Caillef contributes invaluable gaming industry
+            insights and expertise.
+          </p>
+        </Section>
+        <Section id="Awards" align={isMobile ? "top" : "topleft"}>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Winner 🏆
+          </h1>
+          <p className="py-1">
+            dojo track of pragma hackathon with Explore: Realms.World (for
+            Adventurers)
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Winner 🏆
+          </h1>
+          <p className="py-1">
+            first dojo game jam with <span className="text-zred">zKnight</span>
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Winner 🏆
+          </h1>
+          <p className="py-1">
+            second dojo game jam with{" "}
+            <span className="text-zred">zDefender</span>
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Winner 🏆
+          </h1>
+          <p className="py-1">
+            realms track and pragma track during the third game jam with{" "}
+            <span className="text-zred">PlagueSurvivor</span>
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Co-winner 🥇
+          </h1>
+          <p className="py-1">
+            pragma track with <span className="text-zred">Slayer</span>
+          </p>
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-xl sm:text-xl">
+            Winner 🏆
+          </h1>
+          <p className="py-1">
+            last dojo hackathon with <span className="text-zred">zKlash</span>
+          </p>
+        </Section>
       </div>
       <ContactSection />
-      <FooterSection />
     </Scroll>
   );
 };
-
-const ContactSection = () => {
-  const [state, handleSubmit] = useForm("mayzgjbd");
-  return (
-    <div>
-      <Section>
-        <h2 className="text-3xl md:text-5xl font-bold">Contact us</h2>
-        <div className="mt-8 p-8 rounded-md bg-zwhite bg-opacity-50 w-80 max-w-full">
-          {state.succeeded ? (
-            <p className="text-gray-900 text-center">
-              Thanks for your message !
-            </p>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <label
-                for="name"
-                className="font-medium text-gray-900 block mb-1"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-              />
-              <label
-                for="email"
-                className="font-medium text-gray-900 block mb-1 mt-8"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-              />
-              <ValidationError
-                className="mt-1 text-red-500"
-                prefix="Email"
-                field="email"
-                errors={state.errors}
-              />
-              <label
-                for="email"
-                className="font-medium text-gray-900 block mb-1 mt-8"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-zblue p-3"
-              />
-              <ValidationError
-                className="mt-1 text-red-500"
-                errors={state.errors}
-              />
-              <button
-                disabled={state.submitting}
-                className="bg-zblue text-zwhite py-4 px-8 rounded-lg font-bold text-lg mt-16 "
-              >
-                Submit
-              </button>
-            </form>
-          )}
-        </div>
-      </Section>
-      {/* <FooterSection /> */}
-    </div>
-  );
-};
-
-const FooterSection = () => {
-  return (
-    <footer className="bg-zwhite w-full">
-      <div className="flex justify-center items-center w-full p-4">
-        <a href="https://github.com/z-korp/" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
-        </a>
-        <a href="https://realms.world/studios/zkorp" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/realms.svg" alt="Realms" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
-        </a>
-        <a href="https://x.com/zKorp_" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/twitter.svg" alt="Twitter" className="w-4 h-4 md:w-5 md:h-5 mx-2" />
-        </a>
-      </div>
-    </footer>
-  );
-};
-
 
 
 export default Overlay;

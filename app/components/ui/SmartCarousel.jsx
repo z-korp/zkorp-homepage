@@ -19,7 +19,7 @@ const SmartCarousel = ({
       >
         ←
       </button>
-      <div className="flex flex-col items-center justify-center text-center flex-grow mx-2">
+      <div className="flex flex-col items-center justify-center text-center flex-grow mx-2 my-0">
         {list.length > 0 && list[currentIndex] ? (
           <>
             <h1 className="bg-zred text-zwhite font-bold px-4 text-lg sm:text-xl sm:text-2xl my-4 mt-0">

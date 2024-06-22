@@ -1,15 +1,16 @@
 "use client";
 
-import { ScrollControls, Stats } from "@react-three/drei";
 import { useProgress } from "@react-three/drei";
 import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
-import { useEffect, Suspense, useState } from "react";
 
-import { Navbar } from "./components/NavBar";
+import { useEffect, Suspense, useState } from "react";
+import { ScrollControls, Stats } from "@react-three/drei";
+import FooterSection from "./components/ui/Footer"
 import { ScrollManager } from "./components/ScrollManager";
 import { Camera } from "./components/Camera";
 import { Model as Garage } from "./components/Garage";
+import { Model as Garage1 } from "./components/Garage1";
 import { Arcade } from "./components/Arcade";
 import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
@@ -38,7 +39,7 @@ export default function Home() {
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
         <color attach="background" args={["#1f2233"]} />
-        <ScrollControls pages={6.1} damping={0.35}>
+        <ScrollControls pages={6} damping={0.35}>
           {/* <ScrollControls pages={7} damping={0.28}> */}
           <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />
@@ -52,7 +53,8 @@ export default function Home() {
             {started && (
               <>
                 <Camera />
-                <Garage />
+                {/* <Garage /> */}
+                <Garage1/>
                 <Arcade currentGameIndex={currentGameIndex} />
                 {/* <GarageHelper/> */}
               </>
@@ -67,6 +69,7 @@ export default function Home() {
         setMenuOpened={setMenuOpened}
       /> */}
       <Timeline menuOpened={menuOpened} onSectionChange={setSection} currentSection={section}/>
+      <FooterSection/>
     </div>
   );
 }

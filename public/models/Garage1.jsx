@@ -20,9 +20,8 @@ export function Model(props) {
       <mesh name="Table001_Baked" geometry={nodes.Table001_Baked.geometry} material={materials['Table.001_Baked.001']} position={[0.425, -2.164, -1.315]} scale={0.415} />
       <mesh name="Shelving_Baked" geometry={nodes.Shelving_Baked.geometry} material={materials.Shelving_Baked} position={[-1.925, 0.248, -0.686]} scale={0.483} />
       <mesh name="Object_10_Baked" geometry={nodes.Object_10_Baked.geometry} material={materials.Object_10_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
-      <mesh name="Object_11_Baked" geometry={nodes.Object_11_Baked.geometry} material={materials.Object_11_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
+      <mesh name="Object_11_Baked" geometry={nodes.Object_11_Baked.geometry} material={materials['Material.004']} position={[-1.571, -1.939, 1.445]} scale={0.384} />
       <mesh name="Object_12_Baked" geometry={nodes.Object_12_Baked.geometry} material={materials.Object_12_Baked} position={[-1.576, -1.958, 1.441]} scale={0.389} />
-      <mesh name="Object_9_Baked" geometry={nodes.Object_9_Baked.geometry} material={materials.Object_9_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
       <mesh name="logo_Baked" geometry={nodes.logo_Baked.geometry} material={materials.logo_Baked} position={[-1.431, 0.562, -1.881]} rotation={[Math.PI / 2, 0, 0]} scale={0.942} />
       <mesh name="robotArm_Baked" geometry={nodes.robotArm_Baked.geometry} material={materials.robotArm_Baked} position={[-1.482, -1.882, 0.066]} scale={0.628} />
       <mesh name="sword_Baked" geometry={nodes.sword_Baked.geometry} material={materials.sword_Baked} position={[-0.969, -0.612, 0.227]} rotation={[-0.827, -0.163, -1.137]} scale={0.045} />
@@ -33,15 +32,16 @@ export function Model(props) {
       <mesh name="Cube002_Material001_0_Baked" geometry={nodes.Cube002_Material001_0_Baked.geometry} material={materials['Cube.002_Material.001_0_Baked']} position={[-1.434, -1.087, -1.324]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.187, 0.253, 0.013]} />
       <mesh name="Cube002_Material_0_Baked" geometry={nodes.Cube002_Material_0_Baked.geometry} material={materials['Cube.002_Material_0_Baked']} position={[-1.434, -1.087, -1.324]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.187, 0.253, 0.013]} />
       <mesh name="Object_17_Baked" geometry={nodes.Object_17_Baked.geometry} material={materials.Object_17_Baked} position={[-1.643, 1.053, 1.51]} rotation={[-2.687, 1.381, 2.411]} scale={0.212} />
-      <mesh name="Object_16_Baked" geometry={nodes.Object_16_Baked.geometry} material={materials.Object_16_Baked} position={[-1.258, -0.852, 1.045]} rotation={[0, 0, -0.244]} scale={0.384} />
-      <mesh name="Object_14_Baked" geometry={nodes.Object_14_Baked.geometry} material={materials.Object_14_Baked} position={[-1.258, -0.852, 1.548]} rotation={[0, 0, -0.244]} scale={0.384} />
-      <mesh name="Object_21_Baked" geometry={nodes.Object_21_Baked.geometry} material={materials.Object_21_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
-      <mesh name="Object_22_Baked" geometry={nodes.Object_22_Baked.geometry} material={materials.Object_22_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
-      <mesh name="Object_18_Baked" geometry={nodes.Object_18_Baked.geometry} material={materials.Object_18_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
-      <mesh name="Object_19_Baked" geometry={nodes.Object_19_Baked.geometry} material={materials.Object_19_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
       <mesh name="screenArcade1" geometry={nodes.screenArcade1.geometry} material={materials['Material.002']} position={[-1.568, -1.939, 1.445]} scale={0.384} />
       <mesh name="screenArcade2" geometry={nodes.screenArcade2.geometry} material={materials['Material.003']} position={[-1.572, -1.958, 1.441]} scale={0.389} />
       <mesh name="screenLaptop" geometry={nodes.screenLaptop.geometry} material={materials['Material.001']} position={[-1.428, -1.084, -1.317]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.189, 0.255, 0.013]} />
+      <mesh name="Object_16_Baked_Baked_Baked" geometry={nodes.Object_16_Baked_Baked_Baked.geometry} material={materials.Object_16_Baked_Baked_Baked} position={[-1.258, -0.852, 1.045]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_14_Baked_Baked_Baked" geometry={nodes.Object_14_Baked_Baked_Baked.geometry} material={materials.Object_14_Baked_Baked_Baked} position={[-1.258, -0.852, 1.548]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_21_Baked_Baked_Baked" geometry={nodes.Object_21_Baked_Baked_Baked.geometry} material={materials.Object_21_Baked_Baked_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_18_Baked_Baked_Baked" geometry={nodes.Object_18_Baked_Baked_Baked.geometry} material={materials.Object_18_Baked_Baked_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_19_Baked_Baked_Baked_Baked" geometry={nodes.Object_19_Baked_Baked_Baked_Baked.geometry} material={materials.Object_19_Baked_Baked_Baked_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_22_Baked_Baked_Baked" geometry={nodes.Object_22_Baked_Baked_Baked.geometry} material={materials.Object_22_Baked_Baked_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
+      <mesh name="Object_9_Baked_Baked_Baked_Baked" geometry={nodes.Object_9_Baked_Baked_Baked_Baked.geometry} material={materials.Object_9_Baked_Baked_Baked_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
     </group>
   )
 }

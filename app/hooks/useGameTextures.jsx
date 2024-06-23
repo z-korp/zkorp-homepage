@@ -3,13 +3,13 @@ import * as THREE from "three";
 import { useMemo } from "react";
 
 const useGameTextures = (props) => {
-  // const textureZKnight = useTexture("/textures/zknight.mp4");
-  const textureZKnight = useTexture("/textures/zknight.png");
+  const textureZKnight = useVideoTexture("/textures/zknight.mp4");
+  // const textureZKnight = useTexture("/textures/zknight.png");
   const textureZDefender = useVideoTexture("/textures/zdefenderIOS.mp4");
   const textureZConqueror = useVideoTexture("/textures/zconqueror.mp4");
   const textureZKlash = useVideoTexture("/textures/zklash.mp4");
 
-  const videoTextures = [textureZDefender, textureZConqueror, textureZKlash];
+  const videoTextures = [textureZKnight, textureZDefender, textureZConqueror, textureZKlash];
   videoTextures.forEach((texture) => {
     texture.wrapS = THREE.RepeatWrapping;
     texture.repeat.x = 1;

@@ -22,7 +22,7 @@ const SmartCarousel = ({
       <div className="flex flex-col items-center justify-center text-center flex-grow mx-2 my-0">
         {list.length > 0 && list[currentIndex] ? (
           <>
-            <h1 className="bg-zred text-zwhite font-bold px-4 text-lg sm:text-xl sm:text-2xl my-4 mt-0">
+            <h1 className="bg-zred text-zwhite font-bold px-4 text-lg sm:text-l sm:text-2xl my-4 mt-0">
               {list[currentIndex].name} {list[currentIndex].emoji || ''}
             </h1>
             <p className="text-xs sm:text-sm sm:text-base min-h-[80px] max-h-[80px] my-0">

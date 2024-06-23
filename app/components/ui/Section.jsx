@@ -23,9 +23,9 @@ const Section = ({ align, children }) => {
       style={{ paddingTop: "1vh" }}
     >
       <div className="flex items-center justify-center w-full">
-        <div className="w-full bg-zwhite bg-opacity-70 rounded-lg px-4 sm:px-8 py-6 sm:py-12 text-xs sm:text-sm font-bold mr-0">
+        <div className="w-full bg-zwhite bg-opacity-70 rounded-lg px-4 sm:px-3 py-3 sm:py-3 text-xs sm:text-sm font-bold m-0">
           {children}
-          <p className="animate-bounce mt-4 sm:mt-6 mb-0">↓</p>
+          {/* <p className="animate-bounce mt-4 sm:mt-6 mb-0">↓</p> */}
         </div>
       </div>
     </motion.section>

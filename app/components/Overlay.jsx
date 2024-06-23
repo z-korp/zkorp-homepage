@@ -45,7 +45,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
           setCurrentIndex={setCurrentGameIndex}
           list={games}
         />
-        <Section id="Team" align={isMobile ? "bottom" : "topleft"}>
+        <Section id="Team" align={isMobile ? "top" : "topleft"}>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Balty
           </h1>
@@ -53,7 +53,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             A seasoned engineer with a background in smart contract development
             for Carbonable, now pioneering our smart contract innovations.
           </p>
-          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-2xl">
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Matthias
           </h1>
           <p className="py-1">
@@ -61,7 +61,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             web3 company, Matthias is our visionary founder and full-stack
             developer.
           </p>
-          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-2xl">
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Cheelax
           </h1>
           <p className="py-1">
@@ -69,7 +69,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             extensive experience in software development and project management
             as founder and full-stack developer.
           </p>
-          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-2xl">
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Cosmos
           </h1>
           <p className="py-1">
@@ -77,7 +77,7 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             traditional IT engineering with the burgeoning opportunities in
             web3, and also delves into design.
           </p>
-          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-2xl">
+          <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Caillef
           </h1>
           <p className="py-1">

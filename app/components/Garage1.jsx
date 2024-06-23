@@ -17,6 +17,14 @@ export function Model(props) {
     window.open("https://realms.world/games", "_blank");
   };
 
+  const handlePointerOver = (event) => {
+    document.body.style.cursor = 'pointer';
+  };
+
+  const handlePointerOut = (event) => {
+    document.body.style.cursor = 'auto';
+  };
+
   return (
     <group {...props} dispose={null}>
             <mesh name="etherum_Baked" geometry={nodes.etherum_Baked.geometry} material={materials.etherum_Baked} position={[-0.398, -0.716, -1.449]} rotation={[Math.PI / 2, 0, 0]} scale={0.001} />
@@ -48,7 +56,7 @@ export function Model(props) {
       <mesh name="Object_19_Baked_Baked_Baked_Baked" geometry={nodes.Object_19_Baked_Baked_Baked_Baked.geometry} material={materials.Object_19_Baked_Baked_Baked_Baked} position={[-1.148, -0.854, 1.688]} rotation={[0, 0, -0.244]} scale={0.384} />
       <mesh name="Object_22_Baked_Baked_Baked" geometry={nodes.Object_22_Baked_Baked_Baked.geometry} material={materials.Object_22_Baked_Baked_Baked} position={[-1.148, -0.854, 1.185]} rotation={[0, 0, -0.244]} scale={0.384} />
       <mesh name="Object_9_Baked_Baked_Baked_Baked" geometry={nodes.Object_9_Baked_Baked_Baked_Baked.geometry} material={materials.Object_9_Baked_Baked_Baked_Baked} position={[-1.571, -1.939, 1.445]} scale={0.384} />
-      <mesh name="screenLaptop" geometry={nodes.screenLaptop.geometry} material={materialLaptop} position={[-1.428, -1.084, -1.317]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.189, 0.255, 0.013]} onClick={handleLaptopClick}/>
+      <mesh name="screenLaptop" geometry={nodes.screenLaptop.geometry} material={materialLaptop} position={[-1.428, -1.084, -1.317]} rotation={[0, 0.797, -Math.PI / 2]} scale={[0.189, 0.255, 0.013]} onPointerOver={handlePointerOver} onPointerOut={handlePointerOut} onClick={handleLaptopClick}/>
     </group>
   );
 }

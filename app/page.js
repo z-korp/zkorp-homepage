@@ -5,7 +5,7 @@ import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
 
 import { useEffect, Suspense, useState } from "react";
-import { ScrollControls, Stats } from "@react-three/drei";
+import { ScrollControls, Stats, Environment } from "@react-three/drei";
 import FooterSection from "./components/ui/Footer"
 import { ScrollManager } from "./components/ScrollManager";
 import { Camera } from "./components/Camera";
@@ -38,6 +38,11 @@ export default function Home() {
     <div className="relative w-full h-screen">
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
+      <Environment
+        files="/textures/bg.jpg"
+        background
+        backgroundBlurriness={0}
+      />
         <color attach="background" args={["#1f2233"]} />
         <ScrollControls pages={6} damping={0.35}>
           {/* <ScrollControls pages={7} damping={0.28}> */}

@@ -6,7 +6,7 @@ const ContactSection = () => {
     const [state, handleSubmit] = useForm("mayzgjbd");
     return (
       <div>
-        <Section>
+        <Section >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Contact us</h2>
             {state.succeeded ? (
               <p className="text-gray-900 text-center">

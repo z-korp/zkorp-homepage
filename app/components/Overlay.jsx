@@ -91,40 +91,40 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex, setSection }) => {
             Winner 🏆
           </h1>
           <p className="py-1">
-            dojo track of pragma hackathon with Explore: Realms.World (for
+            Dojo track of pragma hackathon with Explore: Realms.World (for
             Adventurers)
           </p>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Winner 🏆
           </h1>
           <p className="py-1">
-            first dojo game jam with <span className="text-zred">zKnight</span>
+            First dojo game jam with <span className="text-zred">zKnight</span>
           </p>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Winner 🏆
           </h1>
           <p className="py-1">
-            second dojo game jam with{" "}
+            Second dojo game jam with{" "}
             <span className="text-zred">zDefender</span>
           </p>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Winner 🏆
           </h1>
           <p className="py-1">
-            realms track and pragma track during the third game jam with{" "}
+            Realms track and pragma track during the third game jam with{" "}
             <span className="text-zred">PlagueSurvivor</span>
           </p>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Co-winner 🥇
           </h1>
           <p className="py-1">
-            pragma track with <span className="text-zred">Slayer</span>
+            Pragma track with <span className="text-zred">Slayer</span>
           </p>
           <h1 className="bg-zred text-zwhite font-bold px-1 text-l sm:text-l">
             Winner 🏆
           </h1>
           <p className="py-1">
-            last dojo hackathon with <span className="text-zred">zKlash</span>
+            Last dojo hackathon with <span className="text-zred">zKlash</span>
           </p>
         </Section>
       </div>

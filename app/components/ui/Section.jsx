@@ -1,18 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Section = ({ align, children }) => {
+  const isMobile = window.innerWidth < 1024;
+
   const alignmentClasses = {
     topleft: "items-start justify-start sm:w-2/5",
     bottomleft: "items-end justify-start sm:w-2/5",
     top: "items-start justify-center sm:w-4/5",
-    bottom: "items-end justify-center sm:w-4/5"
+    bottom: "items-end justify-center sm:w-4/5",
   };
 
   return (
     <motion.section
       className={`h-screen flex ${
-        alignmentClasses[align] || "items-center justify-center w-4/5"
+        alignmentClasses[align] ||
+        `items-center justify-center ${isMobile ? "w-4/5" : "w-1/3"} `
       } p-2 sm:p-10 text-zblue`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{

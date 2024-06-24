@@ -42,6 +42,15 @@ const SmartCarousel = ({
         →
       </button>
     </div>
+    <div className="flex justify-center mt-4">
+      {list.map((item, index) => (
+        <span
+          key={index}
+          onClick={() => setCurrentIndex(index)}
+          className={`h-2 w-2 mx-1 rounded-full ${index === currentIndex ? 'bg-zred' : 'bg-gray-400'} cursor-pointer`}
+        />
+      ))}
+    </div>
   </Section>
 );
 

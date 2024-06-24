@@ -86,36 +86,36 @@ export const awardsRaw = `
   Winner 🏆
 </h1>
 <p className='py-1'>
-  dojo track of pragma hackathon with Explore: Realms.World (for Adventurers)
+  Dojo track of pragma hackathon with Explore: Realms.World (for Adventurers)
 </p>
 <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-xl">
   Winner 🏆
 </h1>
 <p className='py-1'>
-  first dojo game jam with zKnight
+  First dojo game jam with zKnight
 </p>
 <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-xl">
   Winner 🏆
 </h1>
 <p className='py-1'>
-  second dojo game jam with zDefender
+  Second dojo game jam with zDefender
 </p>
 <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-xl">
   Winner 🏆
 </h1>
 <p className='py-1'>
-  realms track and pragma track during the third game jam with PlagueSurvivor
+  Realms track and pragma track during the third game jam with PlagueSurvivor
 </p>
 <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-xl">
   Co-winner 🥇
 </h1>
 <p className='py-1'>
-  pragma track with Slayer
+  Pragma track with Slayer
 </p>
 <h1 className="bg-zred text-zwhite font-bold px-1 italic text-xl sm:text-xl">
   Winner 🏆
 </h1>
 <p className='py-1'>
-  last dojo hackathon with zKlash
+  Last dojo hackathon with zKlash
 </p>
 `;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useProgress } from "@react-three/drei";
+import { OrbitControls, useProgress } from "@react-three/drei";
 import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
 
@@ -38,9 +38,8 @@ export default function Home() {
     <div className="relative w-full h-screen">
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
-        <color attach="background" args={["#1f2233"]} />
+        {/* <color attach="background" args={["#3b1133"]} /> */}
         <ScrollControls pages={6} damping={0.35}>
-          {/* <ScrollControls pages={7} damping={0.28}> */}
           <ScrollManager section={section} onSectionChange={setSection} />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
@@ -61,7 +60,7 @@ export default function Home() {
             )}
           </Suspense>
         </ScrollControls>
-        <Stats />
+        {/* <Stats /> */}
       </Canvas>
       {/* <Navbar
         onSectionChange={setSection}

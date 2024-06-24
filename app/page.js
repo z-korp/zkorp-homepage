@@ -1,12 +1,12 @@
 "use client";
 
 import { OrbitControls, useProgress } from "@react-three/drei";
-import Overlay from "./components/Overlay";
 import { Canvas } from "@react-three/fiber";
-
 import { useEffect, Suspense, useState } from "react";
-import { ScrollControls, Stats} from "@react-three/drei";
-import FooterSection from "./components/ui/Footer"
+import { ScrollControls, Stats } from "@react-three/drei";
+
+import FooterSection from "./components/ui/Footer";
+import Overlay from "./components/Overlay";
 import { ScrollManager } from "./components/ScrollManager";
 import { Camera } from "./components/Camera";
 import { Model as Garage } from "./components/Garage";
@@ -15,8 +15,8 @@ import { Arcade } from "./components/Arcade";
 import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Timeline } from "./components/TimeLine";
+import { GamePortalButton } from "./components/GamePortalButton";
 
-import {useControls } from 'leva'
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -53,7 +53,7 @@ export default function Home() {
               <>
                 <Camera />
                 {/* <Garage /> */}
-                <Garage1/>
+                <Garage1 />
                 <Arcade currentGameIndex={currentGameIndex} />
                 {/* <GarageHelper/> */}
               </>
@@ -67,8 +67,14 @@ export default function Home() {
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
       /> */}
-      <Timeline menuOpened={menuOpened} onSectionChange={setSection} currentSection={section}/>
-      <FooterSection/>
+      {/* <GamePortal/> */}
+      <GamePortalButton />
+      <Timeline
+        menuOpened={menuOpened}
+        onSectionChange={setSection}
+        currentSection={section}
+      />
+      <FooterSection />
     </div>
   );
 }

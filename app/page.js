@@ -1,5 +1,6 @@
 "use client";
 
+//test
 import { OrbitControls, useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
@@ -16,7 +17,6 @@ import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Timeline } from "./components/TimeLine";
 import { GamePortalButton } from "./components/GamePortalButton";
-
 
 export default function Home() {
   const [started, setStarted] = useState(false);

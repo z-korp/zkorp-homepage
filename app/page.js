@@ -12,6 +12,7 @@ import { ScrollManager } from "./components/ScrollManager";
 import { Camera } from "./components/Camera";
 import { Model as Garage } from "./components/Garage";
 import { Model as Garage1 } from "./components/Garage1";
+import { Model as Garage2 } from "./components/Garage2";
 import { Arcade } from "./components/Arcade";
 import { Model as GarageHelper } from "./components/GarageHelper";
 import { LoadingScreen } from "./components/LoadingScreen";
@@ -41,8 +42,8 @@ export default function Home() {
         {/* <color attach="background" args={["#3b1133"]} /> */}
         <ScrollControls pages={6} damping={0.35}>
           <ScrollManager section={section} onSectionChange={setSection} />
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
+          {/* <ambientLight /> */}
+          {/* <pointLight position={[10, 10, 10]} /> */}
           <Overlay
             currentGameIndex={currentGameIndex}
             setCurrentGameIndex={setCurrentGameIndex}
@@ -53,7 +54,7 @@ export default function Home() {
               <>
                 <Camera />
                 {/* <Garage /> */}
-                <Garage1 />
+                <Garage2 />
                 <Arcade currentGameIndex={currentGameIndex} />
                 {/* <GarageHelper/> */}
               </>

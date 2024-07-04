@@ -1,23 +1,20 @@
 "use client";
 
 //test
-import { OrbitControls, useProgress } from "@react-three/drei";
+import { useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
 import { ScrollControls, Stats } from "@react-three/drei";
 
 import FooterSection from "./components/ui/Footer";
-import Overlay from "./components/Overlay";
+import Overlay from "./components/ui/Overlay";
 import { ScrollManager } from "./components/ScrollManager";
-import { Camera } from "./components/Camera";
-import { Model as Garage } from "./components/Garage";
-import { Model as Garage1 } from "./components/Garage1";
-import { Model as Garage2 } from "./components/Garage2";
-import { Arcade } from "./components/Arcade";
-import { Model as GarageHelper } from "./components/GarageHelper";
-import { LoadingScreen } from "./components/LoadingScreen";
+import { Camera } from "./components/threejs-components/Camera";
 import { Timeline } from "./components/TimeLine";
-import { GamePortalButton } from "./components/GamePortalButton";
+import { PlayButton } from "./components/PlayButton";
+import { Model as Garage2 } from "./components/threejs-components/Garage2";
+import { Arcade } from "./components/threejs-components/Arcade";
+import { LoadingScreen } from "./components/LoadingScreen";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -27,7 +24,6 @@ export default function Home() {
   const [currentGameIndex, setCurrentGameIndex] = useState(0);
 
   useEffect(() => {
-    // console.log(progress, total, loaded, item);
     if (progress === 100) {
       setTimeout(() => {
         setStarted(true);
@@ -39,11 +35,8 @@ export default function Home() {
     <div className="relative w-full h-screen">
       <LoadingScreen started={started} setStarted={setStarted} />
       <Canvas>
-        {/* <color attach="background" args={["#3b1133"]} /> */}
         <ScrollControls pages={6} damping={0.35}>
           <ScrollManager section={section} onSectionChange={setSection} />
-          {/* <ambientLight /> */}
-          {/* <pointLight position={[10, 10, 10]} /> */}
           <Overlay
             currentGameIndex={currentGameIndex}
             setCurrentGameIndex={setCurrentGameIndex}
@@ -53,23 +46,15 @@ export default function Home() {
             {started && (
               <>
                 <Camera />
-                {/* <Garage /> */}
                 <Garage2 />
                 <Arcade currentGameIndex={currentGameIndex} />
-                {/* <GarageHelper/> */}
               </>
             )}
           </Suspense>
         </ScrollControls>
         {/* <Stats /> */}
       </Canvas>
-      {/* <Navbar
-        onSectionChange={setSection}
-        menuOpened={menuOpened}
-        setMenuOpened={setMenuOpened}
-      /> */}
-      {/* <GamePortal/> */}
-      <GamePortalButton />
+      <PlayButton/>
       <Timeline
         menuOpened={menuOpened}
         onSectionChange={setSection}

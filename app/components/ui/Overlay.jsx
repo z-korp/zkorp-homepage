@@ -22,13 +22,18 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Z-KORP
           </h1>
           <p>
-            At zKorp, we are obsessed with onchain games. We have built 10 games in 24 months and won 5 gamejams - we never stop building onchain games or bots.
+            At zKorp, we are obsessed with onchain games. We have built 10 games
+            in 24 months and won 5 gamejams - we never stop building onchain
+            games or bots.
           </p>
           <p>
-            Now we want to take onchain gaming to the next level. We are creating a connected game world and running it using the Cairo VM on Starknet and the Realms L3.
+            Now we want to take onchain gaming to the next level. We are
+            creating a connected game world and running it using the Cairo VM on
+            Starknet and the Realms L3.
           </p>
           <p>
-            Our first game will be live on mainnet in June, and we are ready to do all it takes to make it a hit.
+            Our first game will be live on mainnet in June, and we are ready to
+            do all it takes to make it a hit.
           </p>
         </Section>
         <SmartCarousel
@@ -43,31 +48,39 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Balty
           </h1>
           <p className="py-1">
-            A seasoned engineer with a background in smart contract development for Carbonable, now pioneering our smart contract innovations.
+            A seasoned engineer with a background in smart contract development
+            for Carbonable, now pioneering our smart contract innovations.
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Matthias
           </h1>
           <p className="py-1">
-            With a history in electronics engineering and CTO experience in a web3 company, Matthias is our visionary founder and full-stack developer.
+            With a history in electronics engineering and CTO experience in a
+            web3 company, Matthias is our visionary founder and full-stack
+            developer.
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Cheelax
           </h1>
           <p className="py-1">
-            Transitioned from IT engineering in major firms to web3, bringing extensive experience in software development and project management as founder and full-stack developer.
+            Transitioned from IT engineering in major firms to web3, bringing
+            extensive experience in software development and project management
+            as founder and full-stack developer.
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Cosmos
           </h1>
           <p className="py-1">
-            A specialized frontend development engineer, Cosmos bridges traditional IT engineering with the burgeoning opportunities in web3, and also delves into design.
+            A specialized frontend development engineer, Cosmos bridges
+            traditional IT engineering with the burgeoning opportunities in
+            web3, and also delves into design.
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
-            Caillef
+            Noespadon
           </h1>
           <p className="py-1">
-            Juggling roles in the traditional gaming industry at CU.bzh and our blockchain ventures, Caillef contributes invaluable gaming industry insights and expertise.
+            Robotic engineer, dev and 3D designer of this website, Web3
+            enthusiast.
           </p>
         </Section>
         <Section id="Awards" align={isMobile ? "top" : "topleft"}>
@@ -75,7 +88,8 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Winner 🏆
           </h1>
           <p className="py-1">
-            Dojo track of pragma hackathon with Explore: <span className="text-zred">Realms.World</span> (for Adventurers)
+            Dojo track of pragma hackathon with Explore:{" "}
+            <span className="text-zred">Realms.World</span> (for Adventurers)
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Winner 🏆
@@ -87,13 +101,15 @@ const Overlay = ({ currentGameIndex, setCurrentGameIndex }) => {
             Winner 🏆
           </h1>
           <p className="py-1">
-            Second dojo game jam with <span className="text-zred">zDefender</span>
+            Second dojo game jam with{" "}
+            <span className="text-zred">zDefender</span>
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Winner 🏆
           </h1>
           <p className="py-1">
-            Realms track and pragma track during the third game jam with <span className="text-zred">PlagueSurvivor</span>
+            Realms track and pragma track during the third game jam with{" "}
+            <span className="text-zred">PlagueSurvivor</span>
           </p>
           <h1 className="inline-block text-zred font-bold px-1 text-xl sm:text-l font-pixel">
             Co-winner 🥇

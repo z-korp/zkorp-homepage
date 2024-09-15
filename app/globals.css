@@ -18,8 +18,8 @@
 
 body {
   margin: 0;
-  background-color: #2d44bb;
-  background-image: linear-gradient(43deg, #2d44bb 0%, #a62fac 50%, #c92e41 100%);
+  background-color: black;
+  /* background-image: linear-gradient(43deg, #2d44bb 0%, #a62fac 50%, #c92e41 100%); */
   
 }
 
@@ -31,4 +31,21 @@ body {
 
 footer {
   min-height: 100px; /* Ajustez la hauteur minimale selon vos besoins */
+}
+
+/* Masquer la barre de défilement pour Firefox */
+html {
+  scrollbar-width: none; /* Masque la barre de défilement dans Firefox */
+}
+
+/* Masquer la barre de défilement dans IE et Edge */
+body {
+  -ms-overflow-style: none; /* Masque la barre de défilement dans Internet Explorer et Edge */
+}
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  width: 50vw;
 }

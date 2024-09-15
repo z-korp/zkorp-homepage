@@ -8,8 +8,9 @@ import { Model as Spaceship } from './threejs-components/Spaceship';
 import Particles from "./threejs-components/Particles";
 import extension from "@theatre/r3f/dist/extension";
 // TOGGLE TO STUDIO #1/2 
-import DemoSheetComputer from "../computer.json";
-// import DemoSheetMobile from "../mobile.json";
+// import DemoSheetComputer from "../computer.json";
+import DemoSheetComputer from "../Computer2.json";
+import DemoSheetMobile from "../mobile.json";
 
 
 export function Scene() {
@@ -23,8 +24,8 @@ export function Scene() {
 
 
     // TOGGLE TO STUDIO 
-    studio.initialize();
-    studio.extend(extension)
+    // studio.initialize();
+    // studio.extend(extension)
     // const project = getProject('Demo Project').sheet('sheet');
     // console.log(project)
 

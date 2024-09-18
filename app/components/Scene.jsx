@@ -7,10 +7,12 @@ import studio from '@theatre/studio';
 import { Model as Spaceship } from './threejs-components/Spaceship';
 import Particles from "./threejs-components/Particles";
 import extension from "@theatre/r3f/dist/extension";
+import UI from "./Ui"
 // TOGGLE TO STUDIO #1/2 
 // import DemoSheetComputer from "../computer.json";
-import DemoSheetComputer from "../Computer2.json";
-import DemoSheetMobile from "../mobile.json";
+// import DemoSheetComputer from "../Computer2.json";
+// import DemoSheetComputer from "../computer3.json";
+// import DemoSheetMobile from "../mobile.json";
 
 
 export function Scene() {
@@ -24,13 +26,13 @@ export function Scene() {
 
 
     // TOGGLE TO STUDIO 
-    // studio.initialize();
-    // studio.extend(extension)
-    // const project = getProject('Demo Project').sheet('sheet');
-    // console.log(project)
+    studio.initialize();
+    studio.extend(extension)
+    const project = getProject('Demo Project').sheet('sheet');
+    console.log(project)
 
     // TOGGLE TO PROD #2/2
-    const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
+    // const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
 
 
     const titleopacityControl = project.object('Title Opacity Control', {
@@ -96,7 +98,28 @@ export function Scene() {
             <e.pointLight theatreKey='tropheeSpot' position={[10, 10, 10]} intensity={1} />
             <e.spotLight theatreKey="sun" intensity={1000000} />
             <e.group theatreKey="stars"><Particles /></e.group>
-            <e.group theatreKey="TITLE">
+            <e.group theatreKey='TITLE'>
+                <Text
+                    ref={titleRef}
+                    position={[0, 0, 0]}
+                    fontSize={0.5}
+                    color="#1e293b"
+                    anchorX="center"
+                    anchorY="middle"
+                    font=''
+                    lineHeight={0.7}
+                >
+                    <meshBasicMaterial attach="material" opacity={1} />
+                    {"GAME\nON\nCHAIN"}
+                </Text>
+            </e.group>
+            <e.group theatreKey="spaceShip">
+                <Spaceship />
+                <e.group theatreKey='UI'>
+                    <UI project={project}/>
+                </e.group>
+            </e.group>
+            {/* <e.group theatreKey='test'>
                 <Text
                     ref={titleRef}
                     position={[0, 0, 0]}
@@ -109,33 +132,9 @@ export function Scene() {
                     lineHeight={0.6}
                 >
                     <meshBasicMaterial attach="material" opacity={1} />
-                    {"Game\n on\n chain."}
+                    HELLO
                 </Text>
-            </e.group>
-            <e.group theatreKey='ZKORP'
-                additionalProps={{
-                    fillOpacity: types.number(0, {
-                        nudgeMultiplier: 0.1,
-                    }),
-                }}>
-                <Text
-                    ref={zkorpRef}
-                    position={[0, 0, 0]}
-                    fontSize={0.1}
-                    color="#1e293b"
-                    anchorX="center"
-                    anchorY="middle"
-                    font=''
-                    receiveShadow
-                    lineHeight={1.2}
-                >
-                    <meshBasicMaterial attach="material" opacity={1} />
-                    {"At zKorp, we are obsessed with onchain games. We have built 10 games in\n24 months and won 5 gamejams - we never stop building onchain games or\nbots.\nNow we want to take onchain gaming to the next level.\nWe are creating a connected game world and running it using the Cairo VM\non Starknet and the Realms L3.\nOur first game will be live on mainnet in June, and we are ready to do\nall it takes to make it a hit."}
-                </Text>
-            </e.group>
-            <e.group theatreKey="spaceShip">
-                <Spaceship />
-            </e.group>
+            </e.group> */}
         </SheetProvider>
     );
 };

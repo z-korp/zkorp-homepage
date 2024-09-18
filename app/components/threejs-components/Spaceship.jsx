@@ -11,15 +11,22 @@ import { Text } from "@react-three/drei";
 export function Model(props) {
   const { nodes, materials } = useGLTF('/models/spaceship.glb')
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [ hoveredNext, setHoveredNext] = useState(false)
-  const [ hoveredPrevious, setHoveredPrevious] = useState(false)
+  const [hoveredNext, setHoveredNext] = useState(false)
+  const [hoveredPrevious, setHoveredPrevious] = useState(false)
 
-  const descriptions = [
-    "zConqueror 🌍\nA 2D autobattler built with Unity. \nBuild and improve your team to defeat all enemy waves.",
-    "zKlash ⚔️\nA strategic turn-based game inspired \nby 'Into the Breach', set in a 2D isometric world.",
-    "zDefender 🏰\nA real-time tower defense\ngame, demonstrating our ability to create dynamic gameplay.",
-    "zKnight 🛡️\nA risk experience in the realms ecosystem.\nLive on sepolia."
-  ];
+  // const descriptions = [
+  //   "zConqueror 🌍\nA 2D autobattler built with Unity. \nBuild and improve your team to defeat all enemy waves.",
+  //   "zKlash ⚔️\nA strategic turn-based game inspired \nby 'Into the Breach', set in a 2D isometric world.",
+  //   "zDefender 🏰\nA real-time tower defense\ngame, demonstrating our ability to create dynamic gameplay.",
+  //   "zKnight 🛡️\nA risk experience in the realms ecosystem.\nLive on sepolia."
+  // ];
+  const descriptions = 
+  [
+    "  zConqueror 🌍  ",
+    "   zKlash ⚔️    ",
+    " zDefender 🏰   ",
+    "  zKnight 🛡️   "
+]
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
@@ -69,7 +76,7 @@ export function Model(props) {
           <Text
             position={[0, 0, 0]}
             fontSize={0.05}
-            color="#1e293b"
+            color="#3e5780"
             anchorX="center"
             anchorY="middle"
             font=''
@@ -82,76 +89,10 @@ export function Model(props) {
         </e.group>
       </e.group>
       {/* <mesh name="Plane002" geometry={nodes.Plane002.geometry} material={materials['Material.015']} position={[1.278, 0.678, 1.883]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={[0.438, 0.438, 0.791]} /> */}
-      <e.group theatreKey='character'>
-        <e.group theatreKey='wp1'>
-          {/* <e.mesh theatreKey='ep1' name="Plane003" geometry={nodes.Plane003.geometry} material={materials['Material.016']} position={[0.045, 1.25, -0.42]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} /> */}
-          <e.group theatreKey='p1'>
-            <Text
-              fontSize={0.1}
-              color="#1e293b"
-              anchorX="center"
-              anchorY="middle"
-              font=''
-              receiveShadow
-              lineHeight={1.2}
-            >
-              <meshBasicMaterial attach="material" opacity={1} />
-              {"Matthias"}
-            </Text>
-          </e.group>
-        </e.group>
-        <e.group theatreKey='wp2'>
-          {/* <e.mesh theatreKey='ep2' name="Plane004" geometry={nodes.Plane004.geometry} material={materials['Material.017']} position={[0.209, 1.041, -0.379]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} /> */}
-          <e.group theatreKey='p2'>
-            <Text
-              fontSize={0.1}
-              color="#1e293b"
-              anchorX="center"
-              anchorY="middle"
-              font=''
-              receiveShadow
-              lineHeight={1.2}
-            >
-              <meshBasicMaterial attach="material" opacity={1} />
-              {"Cosmos"}
-            </Text>
-          </e.group>
-        </e.group>
-        <e.group theatreKey='wp3'>
-          {/* <e.mesh theatreKey='ep3' name="Plane005" geometry={nodes.Plane005.geometry} material={materials['Material.018']} position={[0.55, 1.269, -0.274]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} /> */}
-          <e.group theatreKey='p3'>
-            <Text
-              fontSize={0.1}
-              color="#1e293b"
-              anchorX="center"
-              anchorY="middle"
-              font=''
-              receiveShadow
-              lineHeight={1.2}
-            >
-              <meshBasicMaterial attach="material" opacity={1} />
-              {"Cheelax"}
-            </Text>
-          </e.group>
-        </e.group>
-        <e.group theatreKey='wp4'>
-          {/* <e.mesh theatreKey='ep4' name="Plane006" geometry={nodes.Plane006.geometry} material={materials['Material.019']} position={[0.268, 1.411, -0.427]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} /> */}
-          <e.group theatreKey='p4'>
-            <Text
-              fontSize={0.1}
-              color="#1e293b"
-              anchorX="center"
-              anchorY="middle"
-              font=''
-              receiveShadow
-              lineHeight={1.2}
-            >
-              <meshBasicMaterial attach="material" opacity={1} />
-              {"Noespadon"}
-            </Text>
-          </e.group>
-        </e.group>
-      </e.group>
+      {/* <mesh name="Plane003" geometry={nodes.Plane003.geometry} material={materials['Material.016']} position={[0.045, 1.25, -0.42]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} />
+      <mesh name="Plane004" geometry={nodes.Plane004.geometry} material={materials['Material.017']} position={[0.209, 1.041, -0.379]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} />
+      <mesh name="Plane005" geometry={nodes.Plane005.geometry} material={materials['Material.018']} position={[0.55, 1.269, -0.274]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} />
+      <mesh name="Plane006" geometry={nodes.Plane006.geometry} material={materials['Material.019']} position={[0.268, 1.411, -0.427]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} />  */}
       <mesh name="Cone" geometry={nodes.Cone.geometry} material={nodes.Cone.material} position={[0.484, 0.007, -0.083]} rotation={[Math.PI / 2, Math.PI / 2, 0]} scale={-0.005} />
       <mesh name="Cube" geometry={nodes.Cube.geometry} material={nodes.Cube.material} position={[0.434, -0.197, -0.472]} rotation={[Math.PI / 4, -Math.PI / 2, 0]} scale={[-0.062, -0.005, -0.712]} />
       <mesh name="Cube001" geometry={nodes.Cube001.geometry} material={nodes.Cube001.material} position={[0.435, -0.193, -0.469]} rotation={[Math.PI / 4, -Math.PI / 2, 0]} scale={[-0.046, -0.004, -0.686]} />
@@ -182,13 +123,11 @@ export function Model(props) {
         <mesh name="Cube019_1" geometry={nodes.Cube019_1.geometry} material={materials['Cube.011_Baked_Baked.001']} />
       </group>
       <mesh name="Cube002_Baked" geometry={nodes.Cube002_Baked.geometry} material={materials['Cube.002_Baked']} position={[0.909, 0.147, 0.383]} rotation={[0, Math.PI / 2, 0]} scale={[0.782, 0.02, 0.269]} />
-      {/* <e.mesh theatreKey="nnextButton" onClick={handleNext} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} name="Text001_Baked" geometry={nodes.Text001_Baked.geometry} material={materials['Text.001_Baked']} position={[-0.139, 0.714, -0.232]} rotation={[Math.PI / 2, 0, 0]} scale={[0.223, 0.721, 0.223]} />
-      <e.mesh theatreKey="ppreviousButton" onClick={handlePrevious} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} name="Text002_Baked" geometry={nodes.Text002_Baked.geometry} material={materials['Text.002_Baked']} position={[-0.719, 0.714, -0.232]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={[0.223, 0.721, 0.223]} /> */}
       <e.mesh
         theatreKey="nnextButton"
         onClick={handleNext}
-        onPointerOver={() => setHoveredNext(true)}  // Survol sur le bouton "Next"
-        onPointerOut={() => setHoveredNext(false)}  // Quitter le survol
+        onPointerOver={() => setHoveredNext(true)}
+        onPointerOut={() => setHoveredNext(false)}
         name="Text001_Baked"
         geometry={nodes.Text001_Baked.geometry}
         material={materials['Text.001_Baked']}
@@ -196,14 +135,13 @@ export function Model(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredNext ? 'red' : 'white'} />  {/* Change la couleur selon l'état */}
+        <meshStandardMaterial color={hoveredNext ? 'red' : 'white'} />
       </e.mesh>
-
       <e.mesh
         theatreKey="ppreviousButton"
         onClick={handlePrevious}
-        onPointerOver={() => setHoveredPrevious(true)}  // Survol sur le bouton "Previous"
-        onPointerOut={() => setHoveredPrevious(false)}  // Quitter le survol
+        onPointerOver={() => setHoveredPrevious(true)}
+        onPointerOut={() => setHoveredPrevious(false)}
         name="Text002_Baked"
         geometry={nodes.Text002_Baked.geometry}
         material={materials['Text.002_Baked']}
@@ -211,7 +149,7 @@ export function Model(props) {
         rotation={[-Math.PI / 2, 0, Math.PI]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredPrevious ? 'red' : 'white'} />  {/* Change la couleur selon l'état */}
+        <meshStandardMaterial color={hoveredPrevious ? 'red' : 'white'} />
       </e.mesh>
     </group>
   )

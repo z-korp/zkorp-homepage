@@ -11,7 +11,7 @@ import UI from "./Ui"
 // TOGGLE TO STUDIO #1/2 
 // import DemoSheetComputer from "../computer.json";
 // import DemoSheetComputer from "../Computer2.json";
-// import DemoSheetComputer from "../computer3.json";
+import DemoSheetComputer from "../computer3.json";
 // import DemoSheetMobile from "../mobile.json";
 
 
@@ -26,13 +26,13 @@ export function Scene() {
 
 
     // TOGGLE TO STUDIO 
-    studio.initialize();
-    studio.extend(extension)
-    const project = getProject('Demo Project').sheet('sheet');
-    console.log(project)
+    // studio.initialize();
+    // studio.extend(extension)
+    // const project = getProject('Demo Project').sheet('sheet');
+    // console.log(project)
 
     // TOGGLE TO PROD #2/2
-    // const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
+    const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
 
 
     const titleopacityControl = project.object('Title Opacity Control', {

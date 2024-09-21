@@ -76,21 +76,21 @@ const UI = ({ project }) => {
       {/* <UICompo thKey="TextGameTitle" color="#3e5780" title="" content={"props"} project={project} /> */}
 
       <e.group theatreKey="TextPlayer">
-        <UICompo thKey="TextPlayer1" color="#3e5780" title="Matthias" content={"With a history in electronics engineering\nand CTO experience in a web3 company,\nMatthias is our visionary founder and\nfull-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer1" color="#3e5780" title="Matthias" content={"With a history in electronics\nengineering and CTO experience\nin a web3 company,Matthias is\nour visionary founder and\nfull-stack developer."} project={project} />
         <UICompo thKey="TextPlayer2" color="#3e5780" title="Cosmos" content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves into design."} project={project} />
-        <UICompo thKey="TextPlayer3" color="#3e5780" title="Cheelax" content={"Transitioned from IT engineering in major firms\nto web3, bringing extensive experience in software\ndevelopment and project management as founder\nand full-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer3" color="#3e5780" title="Cheelax" content={"Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project\nmanagement as founder\nand full-stack developer."} project={project} />
         <UICompo thKey="TextPlayer4" color="#3e5780" title="Noespadon" content={"Robotic engineer, dev and 3D\ndesigner of this website,\nWeb3 enthusiast."} project={project} />
       </e.group>
 
-      {/* <e.group theatreKey="TextAwards">
-        <UICompo thKey="TextAwards1" color="#3e5780" title="Award1" content={"Award1"} project={project} />
-        <UICompo thKey="TextAwards2" color="#3e5780" title="Award2" content={"Award2"} project={project} />
-        <UICompo thKey="TextAwards3" color="#3e5780" title="Award3" content={"Award3"} project={project} />
-        <UICompo thKey="TextAwards4" color="#3e5780" title="Award4" content={"Award4"} project={project} />
-        <UICompo thKey="TextAwards5" color="#3e5780" title="Award5" content={"Award5"} project={project} />
-        <UICompo thKey="TextAwards6" color="#3e5780" title="Award6" content={"Award6"} project={project} />
-        <UICompo thKey="TextAwards7" color="#3e5780" title="Award7" content={"Award7"} project={project} />
-      </e.group> */}
+      <e.group theatreKey="tTextAwards">
+        <UICompo thKey="tTextAwards1" color="#3e5780" title="Winner" content={"Award1"} project={project} />
+        <UICompo thKey="tTextAwards2" color="#3e5780" title="Winner" content={"Last dojo hackathon with zKlash"} project={project} />
+        <UICompo thKey="tTextAwards3" color="#3e5780" title="Co-Winner" content={"Pragma track with Slayer"} project={project} />
+        <UICompo thKey="tTextAwards4" color="#3e5780" title="Winner" content={"Realms track and pragma track\nduring the third game\njam with PlagueSurvivor"} project={project} />
+        <UICompo thKey="tTextAwards5" color="#3e5780" title="Winner" content={"Second dojo game jam with zDefender"} project={project} />
+        <UICompo thKey="tTextAwards6" color="#3e5780" title="Winner" content={"First dojo game jam with zKnight"} project={project} />
+        <UICompo thKey="tTextAwards7" color="#3e5780" title="Winner" content={"Dojo track of pragma hackathon\nwith Explore: Realms.World\n(for Adventurers)"} project={project} />
+      </e.group>
     </>
   );
 };

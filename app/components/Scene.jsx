@@ -11,7 +11,8 @@ import UI from "./Ui"
 // TOGGLE TO STUDIO #1/2 
 // import DemoSheetComputer from "../computer.json";
 // import DemoSheetComputer from "../Computer2.json";
-import DemoSheetComputer from "../computer3.json";
+// import demosheetcomputer from "../computer3.json";
+import demosheetcomputer from "../computer4.json";
 // import DemoSheetMobile from "../mobile.json";
 
 
@@ -32,7 +33,7 @@ export function Scene() {
     // console.log(project)
 
     // TOGGLE TO PROD #2/2
-    const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
+    const project = getProject('Demo Project', { state: isMobile ? demosheetcomputer : demosheetcomputer   }).sheet('sheet');
 
 
     const titleopacityControl = project.object('Title Opacity Control', {
@@ -67,15 +68,14 @@ export function Scene() {
         if (zkorpRef.current && zkorpopacityControl.value.opacity !== undefined) {
             const material = zkorpRef.current.material;
 
-            // Vérifier si le matériau est un tableau
             if (Array.isArray(material)) {
                 material.forEach((mat) => {
                     if ('opacity' in mat) {
-                        mat.opacity = zkorpopacityControl.value.opacity; // Mettre à jour l'opacité si disponible
+                        mat.opacity = zkorpopacityControl.value.opacity;
                     }
                 });
             } else if (material && 'opacity' in material) {
-                material.opacity = zkorpopacityControl.value.opacity; // Mettre à jour l'opacité si c'est un seul matériau
+                material.opacity = zkorpopacityControl.value.opacity;
             }
         }
 
@@ -107,16 +107,16 @@ export function Scene() {
                     anchorX="center"
                     anchorY="middle"
                     font=''
-                    lineHeight={0.7}
+                    lineHeight={0.8}
                 >
                     <meshBasicMaterial attach="material" opacity={1} />
                     {"GAME\nON\nCHAIN"}
                 </Text>
             </e.group>
             <e.group theatreKey="spaceShip">
-                <Spaceship />
+                <Spaceship project={project} />
                 <e.group theatreKey='UI'>
-                    <UI project={project}/>
+                    <UI project={project} />
                 </e.group>
             </e.group>
             {/* <e.group theatreKey='test'>

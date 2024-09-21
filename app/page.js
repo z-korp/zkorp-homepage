@@ -3,8 +3,7 @@
 import { useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
-import { ScrollControls, Stats } from "@react-three/drei";
-
+import { ScrollControls, Stats, OrbitControls } from "@react-three/drei";
 import FooterSection from "./components/ui/Footer";
 import { Timeline } from "./components/TimeLine";
 import { PlayButton } from "./components/PlayButton";
@@ -38,7 +37,7 @@ export default function Home() {
           <Suspense>
             {started && (
               <>
-                <Scene/>
+                <Scene />
               </>
             )}
           </Suspense>

@@ -9,11 +9,8 @@ import Particles from "./threejs-components/Particles";
 import extension from "@theatre/r3f/dist/extension";
 import UI from "./Ui"
 // TOGGLE TO STUDIO #1/2 
-// import DemoSheetComputer from "../computer.json";
-// import DemoSheetComputer from "../Computer2.json";
-// import demosheetcomputer from "../computer3.json";
-import demosheetcomputer from "../computer4.json";
-// import DemoSheetMobile from "../mobile.json";
+import DemoSheetComputer from "../computer.json";
+import DemoSheetMobile from "../mobile.json";
 
 
 export function Scene() {
@@ -24,7 +21,7 @@ export function Scene() {
     const zkorpRef = useRef(null);
     const scroll = useScroll();
     const isMobile = window.innerWidth <= 768;
-
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     // TOGGLE TO STUDIO 
     // studio.initialize();
@@ -33,8 +30,7 @@ export function Scene() {
     // console.log(project)
 
     // TOGGLE TO PROD #2/2
-    const project = getProject('Demo Project', { state: isMobile ? demosheetcomputer : demosheetcomputer   }).sheet('sheet');
-
+    const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetComputer }).sheet('sheet');
 
     const titleopacityControl = project.object('Title Opacity Control', {
         opacity: types.number(1, { range: [0, 1] }),
@@ -114,9 +110,9 @@ export function Scene() {
                 </Text>
             </e.group>
             <e.group theatreKey="spaceShip">
-                <Spaceship project={project} />
+                <Spaceship project={project} setCurrentIndex={setCurrentIndex} currentIndex={currentIndex}/>
                 <e.group theatreKey='UI'>
-                    <UI project={project} />
+                    <UI project={project} currentIndex={currentIndex}/>
                 </e.group>
             </e.group>
             {/* <e.group theatreKey='test'>

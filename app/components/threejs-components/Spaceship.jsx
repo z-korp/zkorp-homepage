@@ -9,13 +9,19 @@ import { useState } from 'react'
 import { editable as e } from "@theatre/r3f";
 import { Text, useTexture } from "@react-three/drei";
 import { Arcade } from './Arcade';
+import useGameTextures from '@/app/hooks/useGameTextures';
 import * as THREE from 'three'
+// import jsonFont from '/fonts/GlitchGoblin.json';
 
-export function Model(props) {
+export function Model({ props, setCurrentIndex, currentIndex }) {
   const { nodes, materials } = useGLTF('/models/spaceship.glb')
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredNext, setHoveredNext] = useState(false)
   const [hoveredPrevious, setHoveredPrevious] = useState(false)
+  const meshRef1 = useRef();
+  const meshRef2 = useRef();
+  const gameIds = ["zKlash", "zKnight", "zDefender", "zConqueror"];
+  const gameMaterial = useGameTextures({ idGame: gameIds[currentIndex] });
 
   const texturePaths = [
     '/textures/zklasharcade2.jpg',
@@ -28,35 +34,16 @@ export function Model(props) {
   const textures = useTexture(texturePaths);
   textures.forEach((texture) => {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.flipY = true;
+    texture.flipY = false;
     texture.repeat.set(1, 1);
   });
 
-  const meshRef1 = useRef();
-
-
-  const gameDescriptions = [
-    "  A 2D autobattler built with Unity.               \n  Build and improve your team to defeat all enemy waves.      ",
-    "  A strategic turn-based game inspired             \n  by 'Into the Breach', set in a 2D isometric world.          ",
-    "  A real-time tower defense                        \n  game, demonstrating our ability to create dynamic gameplay.",
-    "  A risk experience in the realms ecosystem.       \n  Live on sepolia.                                            "
-  ];
-
-
-  const gameTitles =
-    [
-      "  zConqueror 🌍  ",
-      "   zKlash ⚔️    ",
-      " zDefender 🏰   ",
-      "  zKnight 🛡️   "
-    ]
-
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % gameTitles.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + gameTitles.length) % gameTitles.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
     trophyRef.current.material.transparent = true;
   };
 
@@ -92,26 +79,26 @@ export function Model(props) {
       <mesh name="Cube002_Material001_0_Baked" geometry={nodes.Cube002_Material001_0_Baked.geometry} material={materials['Cube.002_Material.001_0_Baked.001']} position={[0.878, 0.203, -0.137]} rotation={[0, -0.999, -Math.PI / 2]} scale={[0.09, 0.122, 0.006]} />
       {/* <mesh name="screenArcade1" geometry={nodes.screenArcade1.geometry} material={materials['Material.033']} position={[-0.451, -0.151, -0.32]} rotation={[0, -1.571, 0]} scale={0.161} />
       <mesh name="screenArcade2" geometry={nodes.screenArcade2.geometry} material={materials['Material.037']} position={[-0.426, 0.709, -0.228]} rotation={[0, -1.571, 0]} scale={0.167} /> */}
-      {/* <e.group theatreKey="screen1Arcade">
+      <e.group theatreKey="screen1Arcade">
         <mesh
           ref={meshRef1}
-          geometry={new THREE.PlaneGeometry(1, 1)} // PlaneGeometry for screenArcade1
-          material={new THREE.MeshBasicMaterial({ map: textures[currentIndex] })} // Change texture based on currentIndex
+          geometry={new THREE.PlaneGeometry(1, 1)}
+          material={new THREE.MeshBasicMaterial({ map: textures[currentIndex] })}
           position={[-0.426, 0.709, -0.228]}
           rotation={[0, -1.571, 0]}
           scale={0.389}
         />
-      </e.group> */}
+      </e.group>
 
-      {/* <e.group theatreKey="planeGroup2">
+      <e.group theatreKey="planeGroup2">
         <mesh
           ref={meshRef2}
-          geometry={new THREE.PlaneGeometry(1, 1)} // PlaneGeometry for screenArcade2
-          material={new THREE.MeshBasicMaterial({ map: textures[currentIndex] })} // Same texture logic
+          geometry={new THREE.PlaneGeometry(1, 1)}
+          material={gameMaterial}
           position={[-1.568, -1.939, 1.445]}
           scale={0.384}
         />
-      </e.group> */}
+      </e.group>
       <mesh name="Object_16_Baked_Baked_Baked_Baked" geometry={nodes.Object_16_Baked_Baked_Baked_Baked.geometry} material={materials['Object_16_Baked_Baked_Baked_Baked.001']} position={[-0.284, 0.303, -0.191]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
       <mesh name="Object_14_Baked_Baked_Baked_Baked" geometry={nodes.Object_14_Baked_Baked_Baked_Baked.geometry} material={materials['Object_14_Baked_Baked_Baked_Baked.001']} position={[-0.494, 0.303, -0.191]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
       <mesh name="Object_19_Baked_Baked_Baked_Baked_Baked" geometry={nodes.Object_19_Baked_Baked_Baked_Baked_Baked.geometry} material={materials['Object_19_Baked_Baked_Baked_Baked_Baked.001']} position={[-0.552, 0.302, -0.145]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
@@ -120,11 +107,11 @@ export function Model(props) {
       {/* <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials['Material.013']} position={[1.278, 0.678, 0.414]} rotation={[0, 0, -Math.PI / 2]} scale={[0.438, 0.438, 0.791]} /> */}
       <e.group theatreKey='PLane'>
         {/* <mesh name="Plane001" geometry={nodes.Plane001.geometry} material={materials['Material.014']} position={[-1.632, 0.713, -0.604]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={[0.949, 0.438, 0.791]} /> */}
-        <e.group theatreKey='gameDescription'>
+        {/* <e.group theatreKey='gameDescription'>
           <Text
             position={[0, 0, 0]}
             fontSize={0.05}
-            color="#3e5780"
+            color="#ba2d3d"
             anchorX="center"
             anchorY="middle"
             font=''
@@ -139,9 +126,9 @@ export function Model(props) {
           <Text
             position={[0, 0, 0]}
             fontSize={0.05}
-            color="#3e5780"
-            anchorX="center"
-            anchorY="middle"
+            color="#ba2d3d"
+            anchorX="left"
+            anchorY="top"
             font=''
             receiveShadow
             lineHeight={1.2} // Ajuste l'espacement entre les lignes
@@ -149,7 +136,7 @@ export function Model(props) {
             <meshBasicMaterial attach="material" opacity={1} />
             {gameDescriptions[currentIndex]}
           </Text>
-        </e.group>
+        </e.group> */}
       </e.group>
       {/* <mesh name="Plane002" geometry={nodes.Plane002.geometry} material={materials['Material.015']} position={[1.278, 0.678, 1.883]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={[0.438, 0.438, 0.791]} /> */}
       {/* <mesh name="Plane003" geometry={nodes.Plane003.geometry} material={materials['Material.016']} position={[0.045, 1.25, -0.42]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[0.067, 0.067, 0.12]} />
@@ -198,7 +185,7 @@ export function Model(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredNext ? 'red' : 'white'} />
+        <meshStandardMaterial color={hoveredNext ? '#ba2d3d' : '#1e293b'} />
       </e.mesh>
       <e.mesh
         theatreKey="ppreviousButton"
@@ -212,7 +199,7 @@ export function Model(props) {
         rotation={[-Math.PI / 2, 0, Math.PI]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredPrevious ? 'red' : 'white'} />
+        <meshStandardMaterial color={hoveredPrevious ? '#ba2d3d' : '#1e293b'} />
       </e.mesh>
     </group>
   )

@@ -9,7 +9,9 @@ import { useState } from 'react'
 import { editable as e } from "@theatre/r3f";
 import { Text, useTexture } from "@react-three/drei";
 import { Arcade } from './Arcade';
-import useGameTextures from '@/app/hooks/useGameTextures';
+// import useGameTextures from '@/app/hooks/useGameTextures';
+import useGameTextures from '../../hooks/useGameTextures';
+
 import * as THREE from 'three'
 // import jsonFont from '/fonts/GlitchGoblin.json';
 
@@ -44,7 +46,6 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
-    trophyRef.current.material.transparent = true;
   };
 
   return (
@@ -103,7 +104,7 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
       <mesh name="Object_14_Baked_Baked_Baked_Baked" geometry={nodes.Object_14_Baked_Baked_Baked_Baked.geometry} material={materials['Object_14_Baked_Baked_Baked_Baked.001']} position={[-0.494, 0.303, -0.191]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
       <mesh name="Object_19_Baked_Baked_Baked_Baked_Baked" geometry={nodes.Object_19_Baked_Baked_Baked_Baked_Baked.geometry} material={materials['Object_19_Baked_Baked_Baked_Baked_Baked.001']} position={[-0.552, 0.302, -0.145]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
       <mesh name="Object_22_Baked_Baked_Baked_Baked" geometry={nodes.Object_22_Baked_Baked_Baked_Baked.geometry} material={materials['Object_22_Baked_Baked_Baked_Baked.001']} position={[-0.342, 0.302, -0.145]} rotation={[0.244, -Math.PI / 2, 0]} scale={0.161} />
-      <mesh name="Text" geometry={nodes.Text.geometry} material={materials['Material.043']} position={[1.193, 1.176, 0.058]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={0.265} />
+      <mesh emissiveIntensity={2} emissive="red" name="Text" geometry={nodes.Text.geometry} position={[1.193, 1.176, 0.058]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={0.265} />
       {/* <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials['Material.013']} position={[1.278, 0.678, 0.414]} rotation={[0, 0, -Math.PI / 2]} scale={[0.438, 0.438, 0.791]} /> */}
       <e.group theatreKey='PLane'>
         {/* <mesh name="Plane001" geometry={nodes.Plane001.geometry} material={materials['Material.014']} position={[-1.632, 0.713, -0.604]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={[0.949, 0.438, 0.791]} /> */}
@@ -185,7 +186,7 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredNext ? '#ba2d3d' : '#1e293b'} />
+        <meshStandardMaterial color={hoveredNext ? '#ba2d3d' : 'white'} />
       </e.mesh>
       <e.mesh
         theatreKey="ppreviousButton"
@@ -199,7 +200,7 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
         rotation={[-Math.PI / 2, 0, Math.PI]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredPrevious ? '#ba2d3d' : '#1e293b'} />
+        <meshStandardMaterial color={hoveredPrevious ? '#ba2d3d' : 'white'} />
       </e.mesh>
     </group>
   )

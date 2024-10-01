@@ -4,7 +4,7 @@ import { Text } from "@react-three/drei";
 import { types } from "@theatre/core";
 import { useFrame } from '@react-three/fiber';
 
-const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY = "middle", colorTitle = "#ba2d3d", colorContent = "#658bc9", }) => {
+const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY = "middle", colorTitle = "#ba2d3d", colorContent = "#ba2d3d", }) => {
   const titleRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -43,7 +43,7 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
           color={colorTitle}
           anchorX="center"
           anchorY="middle"
-          font=''
+          font='/fonts/PixelEmulator-xq08.ttf'
           lineHeight={1}
         >
           <meshBasicMaterial attach="material" opacity={1} />
@@ -59,7 +59,8 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
           color={colorContent}
           anchorX={anchorX}
           anchorY={anchorY}
-          font=''
+          font='/fonts/PixelEmulator-xq08.ttf'
+
           lineHeight={1}
         >
           <meshBasicMaterial attach="material" opacity={1} />
@@ -73,7 +74,7 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
 function UI({ project, currentIndex }) {
 
   const gameDescriptions = [
-    "   A 1D autobattler built with Unity.    \n   Build and improve your team   \n   to defeat all enemy waves.   ",
+    "   A 2D autobattler built with Unity.    \n   Build and improve your team   \n   to defeat all enemy waves.   ",
     "   A strategic turn-based game inspired   \n   by 'Into the Breach',   \n   set in a 1D isometric world.   ",
     "   A real-time tower defense   \n   game, demonstrating our ability   \n   to create dynamic gameplay.   ",
     "   A risk experience in the realms    \n   ecosystem. Live on sepolia.   "
@@ -94,13 +95,13 @@ function UI({ project, currentIndex }) {
 
       <e.group theatreKey="TextPlayer">
         <UICompo thKey="TextPlayer1" title="Matthias" content={"With a history in electronics\nengineering and CTO experience\nin a web3 company,Matthias is\nour visionary founder and\nfull-stack developer."} project={project} />
-        <UICompo thKey="TextPlayer2" title="Cosmos" content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves into design."} project={project} />
-        <UICompo thKey="TextPlayer3" title="Cheelax" content={"Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project\nmanagement as founder\nand full-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer2" title="Cosmos" content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves\ninto design."} project={project} />
+        <UICompo thKey="TextPlayer3" title="Cheelax" content={" Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project management\nas founder and full-stack developer."} project={project} />
         <UICompo thKey="TextPlayer4" title="Noespadon" content={"Robotic engineer, dev and 3D\ndesigner of this website,\nWeb3 enthusiast."} project={project} />
       </e.group>
 
       <e.group theatreKey="tTextAwards">
-        <UICompo thKey="tTextAwards1" title="Winner" content={"Award1"} project={project} />
+        <UICompo thKey="tTextAwards10" title="Winner" content={"Award1"} project={project} />
         <UICompo thKey="tTextAwards2" title="Winner" content={"Last dojo hackathon with zKlash"} project={project} />
         <UICompo thKey="tTextAwards3" title="Co-Winner" content={"Pragma track with Slayer"} project={project} />
         <UICompo thKey="tTextAwards4" title="Winner" content={"Realms track and pragma track\nduring the third game\njam with PlagueSurvivor"} project={project} />

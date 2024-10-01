@@ -9,6 +9,8 @@ import { Timeline } from "./components/TimeLine";
 import { PlayButton } from "./components/PlayButton";
 import { Scene } from "./components/Scene";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { Bloom } from '@react-three/postprocessing'
+import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -31,8 +33,19 @@ export default function Home() {
         gl={{
           antialias: true,
           alpha: true,
-          powerPreference: 'high-performance'
+          powerPreference: 'high-performance',
+          preserveDrawingBuffer: true,
         }}>
+        <Bloom
+          intensity={10000} // The bloom intensity.
+          blurPass={undefined} // A blur pass.
+          kernelSize={KernelSize.LARGE} // blur kernel size
+          luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+          luminanceSmoothing={0.1} // smoothness of the luminance threshold. Range is [0, 1]
+          mipmapBlur={false} // Enables or disables mipmap blur.
+          resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+          resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+        />
         <ScrollControls pages={6} damping={0.35}>
           <Suspense>
             {started && (
@@ -46,11 +59,11 @@ export default function Home() {
         {/* <OrbitControls/> */}
       </Canvas>
       <PlayButton />
-      <Timeline
+      {/* <Timeline
         menuOpened={menuOpened}
         onSectionChange={setSection}
         currentSection={section}
-      />
+      /> */}
       <FooterSection />
     </div>
   );

@@ -8,6 +8,8 @@ const useGameTextures = (props) => {
   const textureZDefender = useVideoTexture("/textures/zdefenderIOS.mp4", { autoplay: true, loop: true, muted: true });
   const textureZConqueror = useVideoTexture("/textures/zconqueror.mp4", { autoplay: true, loop: true, muted: true });
   const textureZKlash = useVideoTexture("/textures/zklash.mp4", { autoplay: true, loop: true, muted: true });
+  const textureZKastle = useVideoTexture("/textures/zkastle.mp4", { autoplay: true, loop: true, muted: true });
+  const textureZKube = useVideoTexture("/textures/zkube.mp4", { autoplay: true, loop: true, muted: true });
 
   // Définir les propriétés des textures vidéo
   const videoTextures = [textureZKnight, textureZDefender, textureZConqueror, textureZKlash];
@@ -25,6 +27,8 @@ const useGameTextures = (props) => {
     zKnight: textureZKnight,
     zDefender: textureZDefender,
     zConqueror: textureZConqueror,
+    zKastle: textureZKastle,
+    zKube: textureZKube,
   };
 
   const selectedTexture = textures[props.idGame];

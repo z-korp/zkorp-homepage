@@ -3,19 +3,18 @@
 import { useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, Suspense, useState } from "react";
-import { ScrollControls, Stats, OrbitControls } from "@react-three/drei";
+import { ScrollControls, Stats } from "@react-three/drei";
 import FooterSection from "./components/ui/Footer";
 import { Timeline } from "./components/TimeLine";
 import { PlayButton } from "./components/PlayButton";
 import { Scene } from "./components/Scene";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { Bloom } from '@react-three/postprocessing'
-import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
+import { KernelSize, Resolution } from 'postprocessing'
 
 export default function Home() {
   const [started, setStarted] = useState(false);
-  const [section, setSection] = useState(0);
-  const [menuOpened, setMenuOpened] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
   const { progress, total, loaded, item } = useProgress();
 
   useEffect(() => {
@@ -25,6 +24,10 @@ export default function Home() {
       }, 500);
     }
   }, [progress, total, loaded, item]);
+
+  const handleSectionChange = (newSection) => {
+    setCurrentSection(newSection);
+  };
 
   return (
     <div className="relative w-full h-screen">
@@ -36,34 +39,34 @@ export default function Home() {
           powerPreference: 'high-performance',
           preserveDrawingBuffer: true,
         }}>
-        <Bloom
-          intensity={10000} // The bloom intensity.
-          blurPass={undefined} // A blur pass.
-          kernelSize={KernelSize.LARGE} // blur kernel size
-          luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
-          luminanceSmoothing={0.1} // smoothness of the luminance threshold. Range is [0, 1]
-          mipmapBlur={false} // Enables or disables mipmap blur.
-          resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
-          resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
-        />
-        <ScrollControls pages={6} damping={0.35}>
+        <EffectComposer>
+          <Bloom 
+            intensity={0.4} // Augmenté pour un effet plus fort
+            luminanceThreshold={0.2} // Réduit pour que plus d'éléments brillent
+            luminanceSmoothing={0.24} // Augmenté pour un effet plus doux
+            blurPass={undefined}
+            kernelSize={KernelSize.LARGE}
+            mipmapBlur={true} // Activé pour un effet de flou plus naturel
+            resolutionX={Resolution.AUTO_SIZE}
+            resolutionY={Resolution.AUTO_SIZE}
+          />
+        </EffectComposer>
+        <ScrollControls pages={7} damping={0.35}> {/* Augmentez le nombre de pages à 7 */}
           <Suspense>
             {started && (
               <>
-                <Scene />
+                <Scene currentSection={currentSection} />
               </>
             )}
           </Suspense>
         </ScrollControls>
         <Stats />
-        {/* <OrbitControls/> */}
       </Canvas>
+      <Timeline
+        onSectionChange={handleSectionChange}
+        currentSection={currentSection}
+      />
       <PlayButton />
-      {/* <Timeline
-        menuOpened={menuOpened}
-        onSectionChange={setSection}
-        currentSection={section}
-      /> */}
       <FooterSection />
     </div>
   );

@@ -4,16 +4,13 @@ import FooterSection from "../components/ui/Footer";
 
 const Mosaic = () => {
   const items = [
-    {
-      id: 1,
-      title: "ZConqueror",
-      imgSrc: "/covers/cover_zconq.webp",
-      url: "https://app.zconqueror.xyz/",
-      status: "Beta",
-    },
-    { id: 2, title: "ZKnight", imgSrc: "/covers/zklash.png", url: "", status:"" },
-    { id: 3, title: "ZKlash", imgSrc: "/covers/zklash.webp", url: "", status:"" },
-    { id: 4, title: "ZDefender", imgSrc: "/covers/zDefender.webp", url: "", status:"" },
+    { id: 1, title: "ZKrown", imgSrc: "/covers/cover_zconq.webp", url: "https://app.zconqueror.xyz/", status: "Beta" },
+    // { id: 2, title: "ZKnight", imgSrc: "/covers/zklash.png", url: "", status: "" },
+    // { id: 4, title: "ZDefender", imgSrc: "/covers/zDefender.webp", url: "", status: "" },
+    { id: 2, title: "ZKastle", imgSrc: "/covers/zKastle.webp", url: "https://zkastle.vercel.app/", status: "Beta" },
+    { id: 3, title: "ZKube", imgSrc: "/covers/zKube.webp", url: "https://zkube.vercel.app/", status: "Beta" },
+    { id: 4, title: "ZKlash", imgSrc: "/covers/zklash.webp", url: "https://zklash-dev.vercel.app/", status: "Beta" },
+
   ];
 
   return (

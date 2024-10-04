@@ -21,8 +21,9 @@ export function Timeline({ onSectionChange, currentSection }) {
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.2 }}
           animate={{ top: `${((index + 1) / 7) * 100}%`, left: "45%" }}
-          className={`absolute transform -translate-x-1/2 -translate-y-1/2 p-1 rounded-full border-none cursor-pointer flex items-center justify-center ${index === currentSection ? "bg-zred" : ""
-            }`}
+          className={`absolute transform -translate-x-1/2 -translate-y-1/2 p-1 rounded-full border-none cursor-pointer flex items-center justify-center ${
+            index === currentSection ? "bg-zred" : ""
+          }`}
           style={{
             width: "40px",
             height: "40px",

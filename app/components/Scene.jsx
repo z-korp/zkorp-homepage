@@ -4,6 +4,7 @@ import { PerspectiveCamera, SheetProvider, editable as e } from "@theatre/r3f";
 import { useScroll, Text } from "@react-three/drei";
 import { getProject, types, val } from "@theatre/core";
 import { Model as Spaceship } from './threejs-components/Spaceship';
+import { Model as Logo } from './threejs-components/Logo';
 import { Model as Laptop } from './threejs-components/Laptop';
 import Particles from "./threejs-components/Particles";
 import UI from "./Ui";
@@ -20,11 +21,12 @@ export function Scene({ currentSection: propCurrentSection }) {
     const titleRef = useRef(null);
     const zkorpRef = useRef(null);
     const scroll = useScroll();
-    // const project = getProject('Demo Project').sheet('sheet');
     const isMobile = window.innerWidth <= 768;
     const [autoScrollEnabled, setAutoScrollEnabled] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isInteracting, setIsInteracting] = useState(false);
+    const [zoom, setZoom] = useState(isMobile ? 0.7 : 1);
+    const [fov, setFov] = useState(isMobile ? 80 : 60);
 
     const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetLarge }).sheet('sheet');
 
@@ -39,7 +41,7 @@ export function Scene({ currentSection: propCurrentSection }) {
         opacity: types.number(1, { range: [0, 1] }),
     }, { reconfigure: true });
 
-    const keyframes = [0, 5.5, 9.2, 11.2, 14.3, 21.6, 24.0];
+    const keyframes = [0, 9.5, 32.6, 38.2, 41.0, 46.996, 51.0];
 
     const scrollToSection = (targetSection) => {
         setIsInteracting(true);
@@ -62,6 +64,17 @@ export function Scene({ currentSection: propCurrentSection }) {
     useEffect(() => {
         scrollToSection(propCurrentSection);
     }, [propCurrentSection]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newIsMobile = window.innerWidth <= 768;
+            setZoom(newIsMobile ? 0.7 : 1);
+            setFov(newIsMobile ? 80 : 60);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useFrame((_, delta) => {
         if (!isInteracting) {
@@ -104,7 +117,13 @@ export function Scene({ currentSection: propCurrentSection }) {
 
     return (
         <SheetProvider sheet={project}>
-            <PerspectiveCamera theatreKey='camTechTT' makeDefault lookAt={cameraTargetRef} fov={isMobile ? 120 : 60} />
+            <PerspectiveCamera 
+                theatreKey='camTechTT' 
+                makeDefault 
+                lookAt={cameraTargetRef} 
+                fov={fov} 
+                zoom={zoom}
+            />
             <e.mesh theatreKey='CameraTargetTT' visible="editor" ref={cameraTargetRef}>
                 <octahedronGeometry />
                 <meshPhongMaterial color="yellow" />
@@ -132,7 +151,7 @@ export function Scene({ currentSection: propCurrentSection }) {
                         emissiveIntensity={2}
                         toneMapped={false}
                     />
-                    {"GAME\nON\nCHAIN"}
+                    {"GAME \n ON  \n CHAIN"}
                 </Text>
             </e.group>
             <e.group theatreKey="spaceShip">
@@ -143,6 +162,9 @@ export function Scene({ currentSection: propCurrentSection }) {
             </e.group>
             <e.group theatreKey='laptop'>
                 <Laptop />
+            </e.group>
+            <e.group theatreKey='logo'>
+                <Logo />
             </e.group>
         </SheetProvider>
     );

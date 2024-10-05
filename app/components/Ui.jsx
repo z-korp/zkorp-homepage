@@ -95,33 +95,33 @@ function UI({ project, currentIndex }) {
     " zDefender ",
     " zKrown ️",
     " zKastle ",
-    " zKube " ]
+    " zKube "]
 
   return (
     <>
-      <UICompo thKey="TextAboutUs" colorTitle="white" emissiveIntensityTitle={1}title={"At zKorp, we are obsessed with onchain games. We have built 10 games in\n24 months and won 5 gamejams - we never stop building onchain games or\nbots.\nNow we want to take onchain gaming to the next level.\nWe are creating a connected game world and running it using the Cairo VM\non Starknet and the Realms L3.\nOur first game will be live on mainnet in June, and we are ready to do\nall it takes to make it a hit."} content={""} project={project} />
+      <UICompo thKey="TextAboutUs" colorTitle="white" emissiveIntensityTitle={1} title={"At zKorp, we are obsessed with onchain games. We have built 10 games in\n24 months and won 5 gamejams - we never stop building onchain games or\nbots.\nNow we want to take onchain gaming to the next level.\nWe are creating a connected game world and running it using the Cairo VM\non Starknet and the Realms L3.\nOur first game will be live on mainnet in June, and we are ready to do\nall it takes to make it a hit."} content={""} project={project} />
 
       {/* <UICompo thKey="TextGameTitle" color="#3e5780" title="" content={"props"} project={project} /> */}
 
       <e.group theatreKey="TextPlayer">
-        <UICompo thKey="TextPlayer1" title="Matthias" content={"With a history in electronics\nengineering and CTO experience\nin a web3 company,Matthias is\nour visionary founder and\nfull-stack developer."} project={project} />
-        <UICompo thKey="TextPlayer2" title="Cosmos" content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves\ninto design."} project={project} />
-        <UICompo thKey="TextPlayer3" title="Cheelax" content={" Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project management\nas founder and full-stack developer."} project={project} />
-        <UICompo thKey="TextPlayer4" title="Noespadon" content={"Robotic engineer, dev and 3D\ndesigner of this website,\nWeb3 enthusiast."} project={project} />
+        <UICompo thKey="TextPlayer1" title="Matthias" colorTitle="yellow" emissiveIntensityTitle={7} content={"With a history in electronics\nengineering and CTO experience\nin a web3 company,Matthias is\nour visionary founder and\nfull-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer2" title="Cosmos" colorTitle="yellow" emissiveIntensityTitle={7} content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves\ninto design."} project={project} />
+        <UICompo thKey="TextPlayer3" title="Cheelax" colorTitle="yellow" emissiveIntensityTitle={7} content={" Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project management\nas founder and full-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer4" title="Noespadon" colorTitle="yellow" emissiveIntensityTitle={7} content={"Robotic engineer, dev and 3D\ndesigner of this website,\nWeb3 enthusiast."} project={project} />
       </e.group>
 
       <e.group theatreKey="tTextAwards">
-        <UICompo thKey="tTextAwards10" title="Winner" content={"Award1"} project={project} />
-        <UICompo thKey="tTextAwards2" title="Winner" content={"Last dojo hackathon with zKlash"} project={project} />
-        <UICompo thKey="tTextAwards3" title="Co-Winner" content={"Pragma track with Slayer"} project={project} />
-        <UICompo thKey="tTextAwards4" title="Winner" content={"Realms track and pragma track\nduring the third game\njam with PlagueSurvivor"} project={project} />
-        <UICompo thKey="tTextAwards5" title="Winner" content={"Second dojo game jam with zDefender"} project={project} />
-        <UICompo thKey="tTextAwards6" title="Winner" content={"First dojo game jam with zKnight"} project={project} />
-        <UICompo thKey="tTextAwards7" title="Winner" content={"Dojo track of pragma hackathon\nwith Explore: Realms.World\n(for Adventurers)"} project={project} />
+        <UICompo thKey="tTextAwards10" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Award1"} project={project} />
+        <UICompo thKey="tTextAwards2" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Last dojo hackathon\nwith zKlash"} project={project} />
+        <UICompo thKey="tTextAwards3" title="Co-Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Pragma track with Slayer"} project={project} />
+        <UICompo thKey="tTextAwards4" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Realms track and\npragma track during the\nthird game jam\nwith PlagueSurvivor"} project={project} />
+        <UICompo thKey="tTextAwards5" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Second dojo game\njam with zDefender"} project={project} />
+        <UICompo thKey="tTextAwards6" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"First dojo game\njam with zKnight"} project={project} />
+        <UICompo thKey="tTextAwards7" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Dojo track of pragma hackathon\nwith Explore: Realms.World\n(for Adventurers)"} project={project} />
       </e.group>
 
       <e.group theatreKey='gameOverlay'>
-        <UICompo thKey="tTitleGameDescription" title="" content={gameTitles?.[currentIndex] || 'Default Description'} colorContent='blue' project={project} />
+        <UICompo thKey="tTitleGameDescription" title="" content={gameTitles?.[currentIndex] || 'Default Description'} colorContent="black" emissiveIntensityContent={28} project={project} />
         <UICompo thKey="tGameDescription" title="" content={gameDescriptions?.[currentIndex] || 'Default Description'} project={project} anchorX='left' anchorY='top' />
       </e.group>
     </>

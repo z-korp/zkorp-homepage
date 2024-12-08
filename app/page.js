@@ -15,6 +15,7 @@ import { KernelSize, Resolution } from 'postprocessing'
 export default function Home() {
   const [started, setStarted] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { progress, total, loaded, item } = useProgress();
 
   useEffect(() => {
@@ -27,6 +28,11 @@ export default function Home() {
 
   const handleSectionChange = (newSection) => {
     setCurrentSection(newSection);
+  };
+
+  const handleScrollProgress = (progress) => {
+    setScrollProgress(progress);
+    console.log(progress)
   };
 
   return (
@@ -55,7 +61,7 @@ export default function Home() {
           <Suspense>
             {started && (
               <>
-                <Scene currentSection={currentSection} />
+                <Scene currentSection={currentSection} onScrollProgress={handleScrollProgress} />
               </>
             )}
           </Suspense>
@@ -65,6 +71,7 @@ export default function Home() {
       <Timeline
         onSectionChange={handleSectionChange}
         currentSection={currentSection}
+        scrollProgress={scrollProgress}
       />
       <PlayButton />
       <FooterSection />

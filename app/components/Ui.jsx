@@ -81,21 +81,24 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
 function UI({ project, currentIndex }) {
 
   const gameDescriptions = [
-    "   A 2D autobattler built with Unity.    \n   Build and improve your team to defeat   \n   all enemy waves.   ",
-    "   A strategic turn-based game inspired   \n   by 'Into the Breach', set in a 1D   \n   isometric world.   ",
-    "   A real-time tower defense game,   \n   demonstrating our ability to create   \n   dynamic gameplay.   ",
-    "   A risk experience in the realms   \n   ecosystem. Live on sepolia.   ",
-    "   A solo strategy card game inspired   \n   by Palm Island. Take control of a   \n   village and help it grow and flourish   \n   by strategically managing resources   \n   and upgrading your infrastructure.   ",
-    "   A strategic puzzle game where players   \n   slide blocks within a grid to form and   \n   clear lines, focusing purely on puzzle-   \n   solving without the pressure of speed.   "
+"        A 2D autobattler built with Unity.        \n     Build and upgrade your team to conquer     \n                waves of enemies.               ",
+"     A strategic turn-based game inspired by     \n         'Into the Breach', set in a unique      \n              1D isometric world.               ",
+"        A real-time tower defense game,          \n        showcasing dynamic and engaging         \n                 gameplay.                      ",
+"      A risk strategy experience within the      \n          Realms ecosystem. Live on Sepolia.    ",
+"      A solo strategy card game inspired by      \n       Palm Island. Manage resources and        \n     upgrade your village to ensure its growth  \n                 and prosperity.                ",
+"      A strategic puzzle game where players      \n        slide blocks to form and clear lines,   \n        focusing purely on strategy without     \n                time pressure.                  "
+
+
   ]
 
   const gameTitles = [
-    " zKlash ️",
-    " zKnight ️",
-    " zDefender ",
-    " zKrown ️",
-    " zKastle ",
-    " zKube "]
+    "         zKlash ️         ",
+    "          zKnight ️         ",
+    "        zDefender         ",
+    "         zKrown ️         ",
+    "         zKastle           ",
+    "         zKube            "
+];
 
   return (
     <>
@@ -105,13 +108,13 @@ function UI({ project, currentIndex }) {
 
       <e.group theatreKey="TextPlayer">
         <UICompo thKey="TextPlayer1" title="Matthias" colorTitle="yellow" emissiveIntensityTitle={7} content={"With a history in electronics\nengineering and CTO experience\nin a web3 company,Matthias is\nour visionary founder and\nfull-stack developer."} project={project} />
-        <UICompo thKey="TextPlayer2" title="Cosmos" colorTitle="yellow" emissiveIntensityTitle={7} content={"A specialized frontend development\nengineer, Cosmos bridges traditional IT\nengineering with the burgeoning\nopportunities in web3, and also delves\ninto design."} project={project} />
-        <UICompo thKey="TextPlayer3" title="Cheelax" colorTitle="yellow" emissiveIntensityTitle={7} content={" Transitioned from IT engineering\n in major firms to web3, bringing\n extensive experience in software\ndevelopment and project management\nas founder and full-stack developer."} project={project} />
+        <UICompo thKey="TextPlayer2" title="Cosmos" colorTitle="yellow" emissiveIntensityTitle={7} content={"A specialized frontend\ndevelopment engineer,\nCosmos bridges\ntraditional IT\nengineering with\nthe burgeoning\nopportunities in\nweb3, and also\ndelves into\ndesign."} project={project} />
+        <UICompo thKey="TextPlayer3" title="Cheelax" colorTitle="yellow" emissiveIntensityTitle={7} content={"Transitioned from\nIT engineering in\nmajor firms to\nweb3, bringing\nextensive experience\nin software\ndevelopment and\nproject management\nas founder and\nfull-stack developer."} project={project} />
         <UICompo thKey="TextPlayer4" title="Noespadon" colorTitle="yellow" emissiveIntensityTitle={7} content={"Robotic engineer, dev and 3D\ndesigner of this website,\nWeb3 enthusiast."} project={project} />
       </e.group>
 
       <e.group theatreKey="tTextAwards">
-        <UICompo thKey="tTextAwards10" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Award1"} project={project} />
+        {/* <UICompo thKey="tTextAwards10" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Award1"} project={project} /> */}
         <UICompo thKey="tTextAwards2" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Last dojo hackathon\nwith zKlash"} project={project} />
         <UICompo thKey="tTextAwards3" title="Co-Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Pragma track with Slayer"} project={project} />
         <UICompo thKey="tTextAwards4" title="Winner" colorTitle="yellow" emissiveIntensityTitle={4} content={"Realms track and\npragma track during the\nthird game jam\nwith PlagueSurvivor"} project={project} />
@@ -124,7 +127,12 @@ function UI({ project, currentIndex }) {
         <UICompo thKey="tTitleGameDescription" title="" content={gameTitles?.[currentIndex] || 'Default Description'} colorContent="black" emissiveIntensityContent={28} project={project} />
         <UICompo thKey="tGameDescription" title="" content={gameDescriptions?.[currentIndex] || 'Default Description'} project={project} anchorX='left' anchorY='top' />
       </e.group>
+
+    <e.group theatreKey='introText'>
+        <UICompo thKey="tIntrotext" title={"Scroll Down\n\n    ⬇️   "} colorTitle="white" emissiveIntensityTitle={4} emissiveIntensityContent={1} project={project} />
+    </e.group>
     </>
+
   );
 };
 

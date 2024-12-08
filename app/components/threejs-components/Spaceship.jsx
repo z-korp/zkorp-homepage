@@ -6,8 +6,9 @@ Command: npx gltfjsx@6.5.0 spaceship.glb -k
 import { useRef, useMemo, useState, useCallback } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { editable as e } from "@theatre/r3f";
-import { Text, useTexture } from "@react-three/drei";
-import { Arcade } from './Arcade';
+import { useTexture } from "@react-three/drei";
+import { Model as Bot } from "./Cute_robot"
+import { Model as Holo } from "./Holo"
 // import useGameTextures from '@/app/hooks/useGameTextures';
 import useGameTextures from '../../hooks/useGameTextures';
 
@@ -85,19 +86,19 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
           <mesh name="trophy_L_trophy1_0001" geometry={nodes.trophy_L_trophy1_0001.geometry} material={materials['trophy1.001']} position={[-714.911, 456.001, -184.587]} rotation={[0, 0.894, 0]} />
         </e.group>
       </e.group>
-      <mesh 
-        name="Object_10_Baked" 
-        geometry={nodes.Object_10_Baked.geometry} 
-        material={materials['Object_10_Baked.001']} 
-        position={[-0.451, -0.151, -0.321]} 
-        rotation={[0, -1.571, 0]} 
-        scale={0.161} 
+      <mesh
+        name="Object_10_Baked"
+        geometry={nodes.Object_10_Baked.geometry}
+        material={materials['Object_10_Baked.001']}
+        position={[-0.451, -0.151, -0.321]}
+        rotation={[0, -1.571, 0]}
+        scale={0.161}
       />
-      <mesh 
-        name="Object_11_Baked" 
-        geometry={nodes.Object_11_Baked.geometry} 
-        position={[-0.451, -0.151, -0.321]} 
-        rotation={[0, -1.571, 0]} 
+      <mesh
+        name="Object_11_Baked"
+        geometry={nodes.Object_11_Baked.geometry}
+        position={[-0.451, -0.151, -0.321]}
+        rotation={[0, -1.571, 0]}
         scale={0.161}
       >
         <meshStandardMaterial
@@ -237,7 +238,12 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredNext ? '#ba2d3d' : 'white'} />
+        <meshStandardMaterial
+          attach="material"
+          emissive={hoveredNext ? 'red' : 'white'}
+          emissiveIntensity={4}
+          toneMapped={false}
+        />
       </e.mesh>
       <e.mesh
         theatreKey="ppreviousButton"
@@ -251,8 +257,15 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
         rotation={[-Math.PI / 2, 0, Math.PI]}
         scale={[0.223, 0.721, 0.223]}
       >
-        <meshStandardMaterial color={hoveredPrevious ? '#ba2d3d' : 'white'} />
+        <meshStandardMaterial
+          attach="material"
+          emissive={hoveredPrevious ? 'red' : 'white'}
+          emissiveIntensity={4}
+          toneMapped={false}
+        />
       </e.mesh>
+      <e.group theatreKey='bot'><Bot /></e.group>
+      <e.group theatreKey='Holo'><Holo /></e.group>
     </group>
   )
 }

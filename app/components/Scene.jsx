@@ -6,15 +6,20 @@ import { getProject, types, val } from "@theatre/core";
 import { Model as Spaceship } from './threejs-components/Spaceship';
 import { Model as Logo } from './threejs-components/Logo';
 import { Model as Laptop } from './threejs-components/Laptop';
+import { Model as Bot } from './threejs-components/Cute_robot';
 import Particles from "./threejs-components/Particles";
 import UI from "./Ui";
 import studio from '@theatre/studio';
 import extension from "@theatre/r3f/dist/extension";
 import { gsap } from "gsap";
-import DemoSheetLarge from "../theatreLarge.json";
-import DemoSheetMobile from "../theatreMobile.json";
+// import DemoSheetLarge from "../theatreLarge.json";
+// import DemoSheetMobile from "../theatreMobile.json";
+// import DemoSheetLarge from "../theatreLarge2.json";
+// import DemoSheetMobile from "../theatreMobile2.json";
+import DemoSheetLarge from "../theatreLarge3.json";
+import DemoSheetMobile from "../theatreMobile3.json";
 
-export function Scene({ currentSection: propCurrentSection }) {
+export function Scene({ currentSection: propCurrentSection, onScrollProgress }) {
     const directionalLightRef = useRef();
     const cameraTargetRef = useRef();
     const particlesRef = useRef(null);
@@ -29,9 +34,11 @@ export function Scene({ currentSection: propCurrentSection }) {
     const [fov, setFov] = useState(isMobile ? 80 : 60);
 
     const project = getProject('Demo Project', { state: isMobile ? DemoSheetMobile : DemoSheetLarge }).sheet('sheet');
+    // const project = getProject('Demo Project', { state:  DemoSheetLarge  }).sheet('sheet');
 
     // studio.initialize();
     // studio.extend(extension);
+
 
     const titleopacityControl = project.object('Title Opacity Control', {
         opacity: types.number(1, { range: [0, 1] }),
@@ -41,12 +48,13 @@ export function Scene({ currentSection: propCurrentSection }) {
         opacity: types.number(1, { range: [0, 1] }),
     }, { reconfigure: true });
 
-    const keyframes = [0, 9.5, 32.6, 38.2, 41.0, 46.996, 51.0];
+    // const keyframes = [0, 56.5, 81.98, 90, 116.0, 143.996, 199.0, 278];
+    const keyframes = [0, 56.5, 81.98, 90, 116.0, 143.996, 199.0];
 
     const scrollToSection = (targetSection) => {
         setIsInteracting(true);
         const sequenceLength = val(project.sequence.pointer.length);
-        const targetPosition = keyframes[targetSection+1];
+        const targetPosition = keyframes[targetSection + 1];
         gsap.to(project.sequence, {
             position: targetPosition,
             duration: 0,
@@ -80,6 +88,7 @@ export function Scene({ currentSection: propCurrentSection }) {
         if (!isInteracting) {
             const sequenceLength = val(project.sequence.pointer.length);
             project.sequence.position = scroll.offset * sequenceLength;
+            console.log(project.sequence.position)
         }
 
         if (titleRef.current && titleopacityControl.value.opacity !== undefined) {
@@ -113,15 +122,19 @@ export function Scene({ currentSection: propCurrentSection }) {
         if (particlesRef.current) {
             particlesRef.current.rotation.y += delta * 0.05;
         }
+
+        const sequenceLength = val(project.sequence.pointer.length);
+        const scrollProgress = scroll.offset * sequenceLength;
+        onScrollProgress(scrollProgress / sequenceLength);
     });
 
     return (
         <SheetProvider sheet={project}>
-            <PerspectiveCamera 
-                theatreKey='camTechTT' 
-                makeDefault 
-                lookAt={cameraTargetRef} 
-                fov={fov} 
+            <PerspectiveCamera
+                theatreKey='camTechTT'
+                makeDefault
+                lookAt={cameraTargetRef}
+                fov={fov}
                 zoom={zoom}
             />
             <e.mesh theatreKey='CameraTargetTT' visible="editor" ref={cameraTargetRef}>

@@ -68,11 +68,11 @@ export default function Home() {
         </ScrollControls>
         <Stats />
       </Canvas>
-      <Timeline
+      {/* <Timeline
         onSectionChange={handleSectionChange}
         currentSection={currentSection}
         scrollProgress={scrollProgress}
-      />
+      /> */}
       <PlayButton />
       <FooterSection />
     </div>

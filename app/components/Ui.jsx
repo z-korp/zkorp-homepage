@@ -81,12 +81,12 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
 function UI({ project, currentIndex }) {
 
   const gameDescriptions = [
-"        A 2D autobattler built with Unity.        \n     Build and upgrade your team to conquer     \n                waves of enemies.               ",
-"     A strategic turn-based game inspired by     \n         'Into the Breach', set in a unique      \n              1D isometric world.               ",
-"        A real-time tower defense game,          \n        showcasing dynamic and engaging         \n                 gameplay.                      ",
-"      A risk strategy experience within the      \n          Realms ecosystem. Live on Sepolia.    ",
-"      A solo strategy card game inspired by      \n       Palm Island. Manage resources and        \n     upgrade your village to ensure its growth  \n                 and prosperity.                ",
-"      A strategic puzzle game where players      \n        slide blocks to form and clear lines,   \n        focusing purely on strategy without     \n                time pressure.                  "
+    "        A 2D autobattler built with Unity.        \n     Build and upgrade your team to conquer     \n                waves of enemies.               ",
+    "     A strategic turn-based game inspired by     \n         'Into the Breach', set in a unique      \n              1D isometric world.               ",
+    "        A real-time tower defense game,          \n        showcasing dynamic and engaging         \n                 gameplay.                      ",
+    "      A risk strategy experience within the      \n          Realms ecosystem. Live on Sepolia.    ",
+    "      A solo strategy card game inspired by      \n       Palm Island. Manage resources and        \n     upgrade your village to ensure its growth  \n                 and prosperity.                ",
+    "      A strategic puzzle game where players      \n        slide blocks to form and clear lines,   \n        focusing purely on strategy without     \n                time pressure.                  "
 
 
   ]
@@ -98,11 +98,20 @@ function UI({ project, currentIndex }) {
     "         zKrown ️         ",
     "         zKastle           ",
     "         zKube            "
-];
+  ];
 
   return (
     <>
-      <UICompo thKey="TextAboutUs" colorTitle="white" emissiveIntensityTitle={1} title={"At zKorp, we are obsessed with onchain games. We have built 10 games in\n24 months and won 5 gamejams - we never stop building onchain games or\nbots.\nNow we want to take onchain gaming to the next level.\nWe are creating a connected game world and running it using the Cairo VM\non Starknet and the Realms L3.\nOur first game will be live on mainnet in June, and we are ready to do\nall it takes to make it a hit."} content={""} project={project} />
+      <UICompo
+        thKey="TextAboutUs"
+        colorTitle="white"
+        emissiveIntensityTitle={1}
+        title={
+          "At zKorp, we are obsessed with onchain games. We have built 10 games in\n24 months and won 5 gamejams - we never stop building onchain games.\n\nNow we want to take onchain gaming to the next level. We are creating a\nconnected game world and running it using the Cairo VM on Starknet and\nthe Dojo framework.\n\nWe deployed zKube on mainnet in november and it's contract is the most\nused on Starknet since."
+        }
+        content={""}
+        project={project}
+      />
 
       {/* <UICompo thKey="TextGameTitle" color="#3e5780" title="" content={"props"} project={project} /> */}
 
@@ -128,9 +137,9 @@ function UI({ project, currentIndex }) {
         <UICompo thKey="tGameDescription" title="" content={gameDescriptions?.[currentIndex] || 'Default Description'} project={project} anchorX='left' anchorY='top' />
       </e.group>
 
-    <e.group theatreKey='introText'>
+      <e.group theatreKey='introText'>
         <UICompo thKey="tIntrotext" title={"Scroll Down\n\n    ⬇️   "} colorTitle="white" emissiveIntensityTitle={4} emissiveIntensityContent={1} project={project} />
-    </e.group>
+      </e.group>
     </>
 
   );

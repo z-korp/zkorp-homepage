@@ -81,23 +81,21 @@ const UICompo = ({ project, title, content, thKey, anchorX = "center", anchorY =
 function UI({ project, currentIndex }) {
 
   const gameDescriptions = [
+    "      A strategic puzzle game where players      \n        slide blocks to form and clear lines,   \n        focusing purely on strategy without     \n                time pressure.                  ",
     "        A 2D autobattler built with Unity.        \n     Build and upgrade your team to conquer     \n                waves of enemies.               ",
     "     A strategic turn-based game inspired by     \n         'Into the Breach', set in a unique      \n              1D isometric world.               ",
     "        A real-time tower defense game,          \n        showcasing dynamic and engaging         \n                 gameplay.                      ",
     "      A risk strategy experience within the      \n          Realms ecosystem. Live on Sepolia.    ",
     "      A solo strategy card game inspired by      \n       Palm Island. Manage resources and        \n     upgrade your village to ensure its growth  \n                 and prosperity.                ",
-    "      A strategic puzzle game where players      \n        slide blocks to form and clear lines,   \n        focusing purely on strategy without     \n                time pressure.                  "
-
-
   ]
 
   const gameTitles = [
+    "         zKube            ",
     "         zKlash ️         ",
     "          zKnight ️         ",
     "        zDefender         ",
     "         zKrown ️         ",
     "         zKastle           ",
-    "         zKube            "
   ];
 
   return (

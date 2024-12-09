@@ -21,17 +21,17 @@ export function Model({ props, setCurrentIndex, currentIndex }) {
   const [hoveredPrevious, setHoveredPrevious] = useState(false)
   const meshRef1 = useRef();
   const meshRef2 = useRef();
-  const gameIds = ["zKlash", "zKnight", "zDefender", "zConqueror", "zKastle", "zKube"];
+  const gameIds = ["zKube", "zKlash", "zKnight", "zDefender", "zConqueror", "zKastle", ];
   const gameMaterial = useGameTextures({ idGame: gameIds[currentIndex] });
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const texturePaths = [
+    '/textures/zkubearcade2.jpg',
     '/textures/zklasharcade2.jpg',
     '/textures/zknightarcade2.jpg',
     '/textures/zdefenderarcade2.jpg',
     '/textures/zconquerorarcade2.jpg',
     '/textures/zkastlearcade2.jpg',
-    '/textures/zkubearcade2.jpg',
   ];
 
   // Utilisation de useTexture pour charger les textures une seule fois

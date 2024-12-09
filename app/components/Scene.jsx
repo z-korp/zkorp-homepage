@@ -49,7 +49,7 @@ export function Scene({ currentSection: propCurrentSection, onScrollProgress }) 
     }, { reconfigure: true });
 
     // const keyframes = [0, 56.5, 81.98, 90, 116.0, 143.996, 199.0, 278];
-    const keyframes = [0, 56.5, 81.98, 90, 116.0, 143.996, 199.0];
+    const keyframes = [0, 10, 81.98, 90, 116.0, 143.996, 199.0];
 
     const scrollToSection = (targetSection) => {
         setIsInteracting(true);

@@ -66,7 +66,7 @@ export default function Home() {
             )}
           </Suspense>
         </ScrollControls>
-        <Stats />
+        {/* <Stats /> */}
       </Canvas>
       {/* <Timeline
         onSectionChange={handleSectionChange}

@@ -12,12 +12,8 @@ import UI from "./Ui";
 import studio from '@theatre/studio';
 import extension from "@theatre/r3f/dist/extension";
 import { gsap } from "gsap";
-// import DemoSheetLarge from "../theatreLarge.json";
-// import DemoSheetMobile from "../theatreMobile.json";
-// import DemoSheetLarge from "../theatreLarge2.json";
-// import DemoSheetMobile from "../theatreMobile2.json";
-import DemoSheetLarge from "../theatreLarge3.json";
-import DemoSheetMobile from "../theatreMobile3.json";
+import DemoSheetLarge from "../theatreLarge.json";
+import DemoSheetMobile from "../theatreMobile.json";
 
 export function Scene({ currentSection: propCurrentSection, onScrollProgress }) {
     const directionalLightRef = useRef();
@@ -49,7 +45,7 @@ export function Scene({ currentSection: propCurrentSection, onScrollProgress }) 
     }, { reconfigure: true });
 
     // const keyframes = [0, 56.5, 81.98, 90, 116.0, 143.996, 199.0, 278];
-    const keyframes = [0, 10, 81.98, 90, 116.0, 143.996, 199.0];
+    const keyframes = [0, 0, 81.98, 90, 116.0, 143.996, 199.0];
 
     const scrollToSection = (targetSection) => {
         setIsInteracting(true);

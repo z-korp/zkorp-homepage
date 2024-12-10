@@ -135,9 +135,9 @@ function UI({ project, currentIndex }) {
         <UICompo thKey="tGameDescription" title="" content={gameDescriptions?.[currentIndex] || 'Default Description'} project={project} anchorX='left' anchorY='top' />
       </e.group>
 
-      <e.group theatreKey='introText'>
+      {/* <e.group theatreKey='introText'>
         <UICompo thKey="tIntrotext" title={"Scroll Down\n\n    ⬇️   "} colorTitle="white" emissiveIntensityTitle={4} emissiveIntensityContent={1} project={project} />
-      </e.group>
+      </e.group> */}
     </>
 
   );

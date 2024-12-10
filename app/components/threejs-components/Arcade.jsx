@@ -1,10 +1,9 @@
-import React, { useMemo, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import useGameTextures from "../../hooks/useGameTextures";
+import { editable as e } from "@theatre/r3f";
 import * as THREE from "three";
 
 export function Arcade({ currentGameIndex }) {
-  const { nodes } = useGLTF("/models/garage1.gltf");
 
   const gameId = ["zKlash", "zKnight", "zDefender", "zConqueror"][
     currentGameIndex
@@ -31,6 +30,7 @@ export function Arcade({ currentGameIndex }) {
     textureZConqueror2,
   ];
 
+  // Paramétrage des textures
   textures.forEach((texture) => {
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
@@ -41,14 +41,14 @@ export function Arcade({ currentGameIndex }) {
   const materialRef = useRef();
   const meshRef = useRef();
 
-  const screenMaterials = useGameTextures({ idGame: gameId });
-
+  // Mise à jour des matériaux au changement d'index
   useEffect(() => {
     if (materialRef.current) {
       materialRef.current.needsUpdate = true;
     }
   }, [currentGameIndex]);
 
+  // Vérification et récupération des dimensions de l'objet 3D une fois chargé
   useEffect(() => {
     if (meshRef.current) {
       const box = new THREE.Box3().setFromObject(meshRef.current);
@@ -60,24 +60,29 @@ export function Arcade({ currentGameIndex }) {
 
   return (
     <>
-      <mesh
-        name="screenArcade2"
-        geometry={nodes.screenArcade2.geometry}
-        material={
-          new THREE.MeshBasicMaterial({ map: textures[currentGameIndex] })
-        }
-        position={[-1.572, -1.958, 1.441]}
-        scale={0.389}
-        ref={meshRef}
-      />
+      <e.group theatreKey="planeGroup1">
+        <mesh
+          name="Plane1"
+          geometry={new THREE.PlaneGeometry(1, 1)} // Crée un plane avec une géométrie simple
+          material={
+            new THREE.MeshBasicMaterial({ map: textures[currentGameIndex] }) // Utilise la texture correspondante
+          }
+          position={[-1.572, -1.958, 1.441]}
+          scale={0.389}
+          ref={meshRef}
+        />
+      </e.group>
 
-      <mesh
-        name="screenArcade1"
-        geometry={nodes.screenArcade1.geometry}
-        material={screenMaterials}
-        position={[-1.568, -1.939, 1.445]}
-        scale={0.384}
-      />
+      <e.group theatreKey="planeGroup2">
+        <mesh
+          name="Plane2"
+          geometry={new THREE.PlaneGeometry(1, 1)} // Deuxième plane
+          material={materialRef.current || new THREE.MeshBasicMaterial()}
+          position={[-1.568, -1.939, 1.445]}
+          scale={0.384}
+          ref={materialRef} // Référence pour vérifier l'état du matériau
+        />
+      </e.group>
     </>
   );
 }
